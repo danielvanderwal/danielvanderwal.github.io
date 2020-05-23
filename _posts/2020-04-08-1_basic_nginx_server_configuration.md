@@ -2,7 +2,7 @@
 title: "NGINX Basics"
 date: 2020-04-08
 categories:
-  - blog
+  - notes
 tags:
   - nginx
 ---

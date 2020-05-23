@@ -2,17 +2,14 @@
 title: "NGNIX - Configuring Virtual Hosts"
 date: 2020-04-22
 categories:
-  - blog
+  - notes
 tags:
   - nginx
 ---
 
-LEMP Stack Deep Dive Git Repository
-Feel free to explore the configurations and code from the course at: GitHub - linuxacademy/content-lemp-deep-dive
+## NGINX - Configuring Virtual Hosts
 
-##NGINX - Configuring Virtual Hosts
-
-####Lesson Objectives:
+#### Lesson Objectives:
 - Explore virtual host configuration file locations
 - Explore relationship between ``nginx.conf`` and virtual host server configuration blocks
 - Review the contents of a virtual host configuration file
@@ -25,7 +22,7 @@ Feel free to explore the configurations and code from the course at: GitHub - li
 
 > Virtual host configuration files are pulled into nginx.conf via include
 
-####Virtual Host Configuration Files:
+#### Virtual Host Configuration Files:
 Will have a *server* block, at a minimum:
 
 - listen ``<port>``;

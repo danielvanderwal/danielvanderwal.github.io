@@ -2,7 +2,7 @@
 title: "NGNIX - Directives (Upsteam, Location, Return)"
 date: 2020-04-22
 categories:
-  - blog
+  - notes
 tags:
   - nginx
 ---
@@ -16,7 +16,8 @@ tags:
 #### The upstream directive
 The upstream directive defines groups of servers that can be referenced by the `proxy_pass, fastcgi_pass, uwsgi_pass, scgi_pass, memcached_pass`, and `grpc_pass` directives:
 
-```upstream testdomainapp  {
+```
+   upstream testdomainapp  {
    server app1.testdomain.local:8085;
    server app2.testdomain.local:8086 backup;
    server app3.testdomain.local:8087 backup;

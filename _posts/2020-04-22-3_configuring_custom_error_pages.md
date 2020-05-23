@@ -2,13 +2,10 @@
 title: "NGINX - Configuring Custom Error Pages in NGINX"
 date: 2020-04-22
 categories:
-  - blog
+  - notes
 tags:
   - nginx
 ---
-
-LEMP Stack Deep Dive Git Repository
-Feel free to explore the configurations and code from the course at: GitHub - linuxacademy/content-lemp-deep-dive
 
 ## Configuring Custom Error Pages in NGINX
 #### Lesson Objectives:
@@ -26,7 +23,6 @@ Feel free to explore the configurations and code from the course at: GitHub - li
 #### Configure a Single Error:
 Custom error pages are configured using the `error_page` directive:
 
-`
 error_page 404 /testdomain_404.html;
 location = /testdomain_404.html {
         root /var/www/html;

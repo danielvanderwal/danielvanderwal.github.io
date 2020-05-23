@@ -2,12 +2,12 @@
 title: "NGNIX - Securing Virtual Hosts - HTTPS"
 date: 2020-04-22
 categories:
-  - blog
+  - notes
 tags:
   - nginx
 ---
 
-##NGINX - Securing Virtual Hosts - HTTPS
+## NGINX - Securing Virtual Hosts - HTTPS
 #### Lesson Objectives
 - Explore the `listen` directive
 - Explore the `ngx_http_ssl_module` and associated directives

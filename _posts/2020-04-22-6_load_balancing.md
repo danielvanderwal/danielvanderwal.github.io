@@ -2,7 +2,7 @@
 title: "NGNIX - Load Balancing"
 date: 2020-04-22
 categories:
-  - blog
+  - notes
 tags:
   - nginx
 ---
@@ -15,7 +15,7 @@ tags:
   - server directive
 
 #### The upstream directive
-The upstream directive defines groups of servers that can be referenced by the proxy_pass, fastcgi_pass, uwsgi_pass, scgi_pass, memcached_pass, and grpc_pass directives:
+The upstream directive defines groups of servers that can be referenced by the `proxy_pass`, `fastcgi_pass`, `uwsgi_pass`, `scgi_pass`, `memcached_pass`, and `grpc_pass` directives:
 
 ```
 upstream testdomainapp  {

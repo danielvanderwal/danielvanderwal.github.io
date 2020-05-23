@@ -2,7 +2,7 @@
 title: "NGNIX - Blocking Access by IP with NGINX"
 date: 2020-04-22
 categories:
-  - blog
+  - notes
 tags:
   - nginx
 ---
