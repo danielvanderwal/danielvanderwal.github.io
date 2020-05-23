@@ -1,5 +1,14 @@
-##NGINX - Load Balancing - An Introduction
-####Lesson Objectives
+---
+title: "NGNIX - Load Balancing"
+date: 2020-04-22
+categories:
+  - blog
+tags:
+  - nginx
+---
+
+## NGINX - Load Balancing - An Introduction
+#### Lesson Objectives
 - Explore load balancing using the:
   - upstream directive
   - location directive
@@ -18,7 +27,7 @@ upstream testdomainapp  {
 
 By default, requests are distributed between the servers using a weighted round-robin balancing method.
 
-####The location directive
+#### The location directive
 
 The `location` directive is the other part of the equation that enables the `upstream` directive:
 
@@ -30,7 +39,7 @@ location /app {
 
 In this example, we are using the `/app` location to front-end the `testdomainapp` server group, defined in the `upstream` directive.
 
-####The server directive
+#### The server directive
 
 The `server` directive defines an individual server that is part of the `upstream` group:
 

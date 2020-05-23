@@ -1,3 +1,12 @@
+---
+title: "NGINX - Configuring Custom Error Pages in NGINX"
+date: 2020-04-22
+categories:
+  - blog
+tags:
+  - nginx
+---
+
 LEMP Stack Deep Dive Git Repository
 Feel free to explore the configurations and code from the course at: GitHub - linuxacademy/content-lemp-deep-dive
 

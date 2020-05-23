@@ -1,3 +1,12 @@
+---
+title: "NGNIX - Directives (Upsteam, Location, Return)"
+date: 2020-04-22
+categories:
+  - blog
+tags:
+  - nginx
+---
+
 ## NGINX - Directives - Upstream / Location / Return
 #### Lesson Objectives:
 - Explore the `upstream` directive

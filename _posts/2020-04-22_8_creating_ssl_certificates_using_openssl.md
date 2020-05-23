@@ -1,9 +1,18 @@
-##Creating SSL Certificates Using OpenSSL
-####Lesson Objectives
+---
+title: "NGNIX - Creating SSL Certificates Using OpenSSL"
+date: 2020-04-22
+categories:
+  - blog
+tags:
+  - nginx
+---
+
+## Creating SSL Certificates Using OpenSSL
+#### Lesson Objectives
 - Create a self-signed SSL certificate using OpenSSL
 - Verify our self-signed SSL certificate using OpenSSL
 
-####Create a Certificate Authority Private Key and Certificate
+#### Create a Certificate Authority Private Key and Certificate
 
 First, we'll need a place to store our certificates:
 ```
