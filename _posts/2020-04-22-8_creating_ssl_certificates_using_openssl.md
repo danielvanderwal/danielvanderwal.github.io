@@ -8,9 +8,6 @@ tags:
 ---
 
 ## Creating SSL Certificates Using OpenSSL
-#### Lesson Objectives
-- Create a self-signed SSL certificate using OpenSSL
-- Verify our self-signed SSL certificate using OpenSSL
 
 #### Create a Certificate Authority Private Key and Certificate
 

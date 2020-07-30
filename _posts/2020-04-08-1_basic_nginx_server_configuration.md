@@ -7,12 +7,6 @@ tags:
   - nginx
 ---
 
-## Lesson Objectives:
-- Explore the /etc/nginx directory
-- Explore the nginx.conf file
-- Learn how to check the NGINX configuration using nginx -t
-- Learn how to reload the NGINX configuration
-
 ## The /etc/nginx directory:
 
 #### Location for all configuration files:

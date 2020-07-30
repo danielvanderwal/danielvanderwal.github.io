@@ -9,12 +9,6 @@ tags:
 
 ## NGINX - Configuring Virtual Hosts
 
-#### Lesson Objectives:
-- Explore virtual host configuration file locations
-- Explore relationship between ``nginx.conf`` and virtual host server configuration blocks
-- Review the contents of a virtual host configuration file
-- Explore troubleshooting problems in virtual host configuration files
-
 #### Virtual host configuration file locations:
   - /etc/nginx/conf.d
   - /etc/nginx/sites-available

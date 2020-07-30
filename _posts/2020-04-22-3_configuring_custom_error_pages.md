@@ -8,10 +8,6 @@ tags:
 ---
 
 ## Configuring Custom Error Pages in NGINX
-#### Lesson Objectives:
-- Discuss why we might want to use custom error pages
-- Demonstrate how to configure a custom error page for a single error type
-- Demonstrate how to map a custom error page for multiple error types
 
 #### Why Custom Error Pages?
 - Match "look and feel" of the site

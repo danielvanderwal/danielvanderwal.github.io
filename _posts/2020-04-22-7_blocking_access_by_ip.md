@@ -8,8 +8,6 @@ tags:
 ---
 
 ## Blocking Access by IP with NGINX
-#### Lesson Objectives
-Explore the `ngx_http_access_module` in NGINX
 
 - `allow` directive
 - `deny` directive

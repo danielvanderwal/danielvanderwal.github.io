@@ -8,10 +8,6 @@ tags:
 ---
 
 ## NGINX - Securing Virtual Hosts - HTTPS
-#### Lesson Objectives
-- Explore the `listen` directive
-- Explore the `ngx_http_ssl_module` and associated directives
-- Secure a virtual host using SSL/TLS
 
 #### SSL/TLS Configuration Examples
 
