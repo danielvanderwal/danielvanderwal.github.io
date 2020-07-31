@@ -2,9 +2,9 @@
 title: "NGNIX - Directives (Upsteam, Location, Return)"
 date: 2020-04-22
 categories:
-  - notes
+  - NGINX
 tags:
-  - nginx
+  - nginx directives upstream location return
 ---
 
 ## NGINX - Directives - Upstream / Location / Return

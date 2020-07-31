@@ -2,9 +2,9 @@
 title: "NGINX - Configuring Custom Error Pages in NGINX"
 date: 2020-04-22
 categories:
-  - notes
+  - NGINX
 tags:
-  - nginx
+  - nginx error pages
 ---
 
 ## Configuring Custom Error Pages in NGINX

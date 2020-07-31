@@ -2,9 +2,9 @@
 title: "NGNIX - Blocking Access by IP with NGINX"
 date: 2020-04-22
 categories:
-  - notes
+  - NGINX
 tags:
-  - nginx
+  - nginx ip filtering blocking allow deny
 ---
 
 ## Blocking Access by IP with NGINX

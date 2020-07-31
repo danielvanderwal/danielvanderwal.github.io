@@ -2,9 +2,9 @@
 title: "NGNIX - Securing Virtual Hosts - HTTPS"
 date: 2020-04-22
 categories:
-  - notes
+  - NGINX
 tags:
-  - nginx
+  - nginx secure ssl tls certificate x509 key 443
 ---
 
 ## NGINX - Securing Virtual Hosts - HTTPS

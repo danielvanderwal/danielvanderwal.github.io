@@ -2,9 +2,9 @@
 title: "NGNIX - Load Balancing"
 date: 2020-04-22
 categories:
-  - notes
+  - NGINX
 tags:
-  - nginx
+  - nginx load balancing distributed
 ---
 
 ## NGINX - Load Balancing - An Introduction

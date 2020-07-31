@@ -2,9 +2,9 @@
 title: "NGNIX - Creating SSL Certificates Using OpenSSL"
 date: 2020-04-22
 categories:
-  - notes
+  - NGINX
 tags:
-  - nginx
+  - nginx ssl certificate openssl
 ---
 
 ## Creating SSL Certificates Using OpenSSL

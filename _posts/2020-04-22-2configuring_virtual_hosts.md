@@ -2,9 +2,9 @@
 title: "NGNIX - Configuring Virtual Hosts"
 date: 2020-04-22
 categories:
-  - notes
+  - NGINX
 tags:
-  - nginx
+  - nginx virtual hosts
 ---
 
 ## NGINX - Configuring Virtual Hosts
