@@ -320,7 +320,7 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">Creating and Manipulating files
+    <p class="archive__item-excerpt" itemprop="description">Ways to modify files:
 
 </p>
   </article>
@@ -361,7 +361,9 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">Compressing and Decompressing Files
+    <p class="archive__item-excerpt" itemprop="description">Creating archive
+tar cvf example.tar /sourcedir
+
 
 </p>
   </article>
@@ -402,7 +404,7 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">IO Redirection
+    <p class="archive__item-excerpt" itemprop="description">Overview
 
 </p>
   </article>
@@ -443,7 +445,8 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">Logging In and Switching Users
+    <p class="archive__item-excerpt" itemprop="description">su command
+switch user command
 
 </p>
   </article>
@@ -484,9 +487,11 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">SSH
+    <p class="archive__item-excerpt" itemprop="description">Common Flags
 
-</p>
+  -l Used to specify username
+  -i filename Used to specify private key used for authenticating
+  -F filename Used for specifying which config ...</p>
   </article>
 </div>
 
@@ -525,7 +530,7 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">Using grep and Regular Expressions
+    <p class="archive__item-excerpt" itemprop="description">Overview
 
 </p>
   </article>
@@ -566,7 +571,7 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">NGINX - Securing Virtual Hosts - HTTPS
+    <p class="archive__item-excerpt" itemprop="description">SSL/TLS Configuration Examples
 
 </p>
   </article>
@@ -601,13 +606,13 @@
 
       <i class="far fa-clock" aria-hidden="true"></i>
       
-        1 minute read
+        less than 1 minute read
       
     
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">Creating SSL Certificates Using OpenSSL
+    <p class="archive__item-excerpt" itemprop="description">Create a Certificate Authority Private Key and Certificate
 
 </p>
   </article>
@@ -648,7 +653,10 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">Blocking Access by IP with NGINX
+    <p class="archive__item-excerpt" itemprop="description">
+  allow directive
+  deny directive
+
 
 </p>
   </article>
@@ -689,9 +697,8 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">NGINX - Load Balancing - An Introduction
-
-</p>
+    <p class="archive__item-excerpt" itemprop="description">The upstream directive
+The upstream directive defines groups of servers that can be referenced by the proxy_pass, fastcgi_pass, uwsgi_pass, scgi_pass, memcac...</p>
   </article>
 </div>
 
@@ -730,9 +737,8 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">NGINX - Directives - Upstream / Location / Return
-
-</p>
+    <p class="archive__item-excerpt" itemprop="description">The upstream directive
+The upstream directive defines groups of servers that can be referenced by the proxy_pass, fastcgi_pass, uwsgi_pass, scgi_pass, memcac...</p>
   </article>
 </div>
 
@@ -771,9 +777,12 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">Configuring Custom Error Pages in NGINX
+    <p class="archive__item-excerpt" itemprop="description">Why Custom Error Pages?
 
-</p>
+  Match “look and feel” of the site
+  Provide customized information
+  “Sanitize” server information
+  “Catch all” for response code...</p>
   </article>
 </div>
 
@@ -812,7 +821,12 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">NGINX - Configuring Virtual Hosts
+    <p class="archive__item-excerpt" itemprop="description">Virtual host configuration file locations:
+
+  /etc/nginx/conf.d
+  /etc/nginx/sites-available
+  /etc/nginx/sites-enabled
+
 
 </p>
   </article>
@@ -853,7 +867,8 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">NGINX - Rewrites
+    <p class="archive__item-excerpt" itemprop="description">The rewrite directive:
+Changes part or all of the URL in a client request:
 
 </p>
   </article>
@@ -894,9 +909,14 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">The /etc/nginx directory:
+    <p class="archive__item-excerpt" itemprop="description">Location for all configuration files:
 
-</p>
+  nginx.conf
+    
+      Virtual host configuration files:
+        
+          conf.d directory (RHEL)
+          sites-a...</p>
   </article>
 </div>
 

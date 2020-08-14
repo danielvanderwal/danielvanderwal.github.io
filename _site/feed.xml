@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:3000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:3000/" rel="alternate" type="text/html" /><updated>2020-08-14T14:17:44-04:00</updated><id>http://localhost:3000/feed.xml</id><title type="html">danielvanderwal.github.io</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Daniel VanderWal</name></author><entry><title type="html">Creating and Manipulating files</title><link href="http://localhost:3000/linux/6_Creating_and_Manipulating_Files/" rel="alternate" type="text/html" title="Creating and Manipulating files" /><published>2020-05-28T00:00:00-04:00</published><updated>2020-05-28T00:00:00-04:00</updated><id>http://localhost:3000/linux/6_Creating_and_Manipulating_Files</id><content type="html" xml:base="http://localhost:3000/linux/6_Creating_and_Manipulating_Files/">&lt;h1 id=&quot;creating-and-manipulating-files&quot;&gt;Creating and Manipulating files&lt;/h1&gt;
-
-&lt;h3 id=&quot;ways-to-modify-files&quot;&gt;Ways to modify files:&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:3000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:3000/" rel="alternate" type="text/html" /><updated>2020-08-14T14:22:35-04:00</updated><id>http://localhost:3000/feed.xml</id><title type="html">danielvanderwal.github.io</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Daniel VanderWal</name></author><entry><title type="html">Creating and Manipulating files</title><link href="http://localhost:3000/linux/6_Creating_and_Manipulating_Files/" rel="alternate" type="text/html" title="Creating and Manipulating files" /><published>2020-05-28T00:00:00-04:00</published><updated>2020-05-28T00:00:00-04:00</updated><id>http://localhost:3000/linux/6_Creating_and_Manipulating_Files</id><content type="html" xml:base="http://localhost:3000/linux/6_Creating_and_Manipulating_Files/">&lt;h3 id=&quot;ways-to-modify-files&quot;&gt;Ways to modify files:&lt;/h3&gt;
 
 &lt;ol&gt;
   &lt;li&gt;touch: creates a zero byte files&lt;/li&gt;
@@ -85,9 +83,7 @@ find /etc &lt;span class=&quot;nt&quot;&gt;-name&lt;/span&gt; httpd.conf
       &lt;li&gt;Sorts&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">Creating and Manipulating files</summary></entry><entry><title type="html">Compressing and Decompressing Files</title><link href="http://localhost:3000/linux/5_Compressing_and_Decompressing_Files/" rel="alternate" type="text/html" title="Compressing and Decompressing Files" /><published>2020-05-27T00:00:00-04:00</published><updated>2020-05-27T00:00:00-04:00</updated><id>http://localhost:3000/linux/5_Compressing_and_Decompressing_Files</id><content type="html" xml:base="http://localhost:3000/linux/5_Compressing_and_Decompressing_Files/">&lt;h1 id=&quot;compressing-and-decompressing-files&quot;&gt;Compressing and Decompressing Files&lt;/h1&gt;
-
-&lt;h3 id=&quot;creating-archive&quot;&gt;Creating archive&lt;/h3&gt;
+&lt;/ul&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">Ways to modify files:</summary></entry><entry><title type="html">Compressing and Decompressing Files</title><link href="http://localhost:3000/linux/5_Compressing_and_Decompressing_Files/" rel="alternate" type="text/html" title="Compressing and Decompressing Files" /><published>2020-05-27T00:00:00-04:00</published><updated>2020-05-27T00:00:00-04:00</updated><id>http://localhost:3000/linux/5_Compressing_and_Decompressing_Files</id><content type="html" xml:base="http://localhost:3000/linux/5_Compressing_and_Decompressing_Files/">&lt;h3 id=&quot;creating-archive&quot;&gt;Creating archive&lt;/h3&gt;
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;cvf example.tar /sourcedir
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -144,7 +140,7 @@ or
 &lt;p&gt;Examples:&lt;/p&gt;
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;zip &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; archivename /home
 unzip archivename
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">Compressing and Decompressing Files</summary></entry><entry><title type="html">IO Redirection</title><link href="http://localhost:3000/linux/2_IO_Redirection/" rel="alternate" type="text/html" title="IO Redirection" /><published>2020-05-26T00:00:00-04:00</published><updated>2020-05-26T00:00:00-04:00</updated><id>http://localhost:3000/linux/2_IO_Redirection</id><content type="html" xml:base="http://localhost:3000/linux/2_IO_Redirection/">&lt;h1 id=&quot;io-redirection&quot;&gt;IO Redirection&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">Creating archive tar cvf example.tar /sourcedir</summary></entry><entry><title type="html">IO Redirection</title><link href="http://localhost:3000/linux/2_IO_Redirection/" rel="alternate" type="text/html" title="IO Redirection" /><published>2020-05-26T00:00:00-04:00</published><updated>2020-05-26T00:00:00-04:00</updated><id>http://localhost:3000/linux/2_IO_Redirection</id><content type="html" xml:base="http://localhost:3000/linux/2_IO_Redirection/">&lt;h3 id=&quot;overview&quot;&gt;Overview&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;stdin - keyboard&lt;/li&gt;
@@ -180,9 +176,7 @@ unzip archivename
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  myscript.sh 2&amp;gt; errors &lt;span class=&quot;c&quot;&gt;# redirects stderr rather than stdout&lt;/span&gt;
 
   myscript.sh &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; allout.txt 2&amp;gt;&amp;amp;1 &lt;span class=&quot;c&quot;&gt;# redirects stdout and stderr to file&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">IO Redirection</summary></entry><entry><title type="html">SSH</title><link href="http://localhost:3000/linux/3_ssh/" rel="alternate" type="text/html" title="SSH" /><published>2020-05-25T00:00:00-04:00</published><updated>2020-05-25T00:00:00-04:00</updated><id>http://localhost:3000/linux/3_ssh</id><content type="html" xml:base="http://localhost:3000/linux/3_ssh/">&lt;h1 id=&quot;ssh&quot;&gt;SSH&lt;/h1&gt;
-
-&lt;h3 id=&quot;common-flags&quot;&gt;Common Flags&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">Overview</summary></entry><entry><title type="html">SSH</title><link href="http://localhost:3000/linux/3_ssh/" rel="alternate" type="text/html" title="SSH" /><published>2020-05-25T00:00:00-04:00</published><updated>2020-05-25T00:00:00-04:00</updated><id>http://localhost:3000/linux/3_ssh</id><content type="html" xml:base="http://localhost:3000/linux/3_ssh/">&lt;h3 id=&quot;common-flags&quot;&gt;Common Flags&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;-l Used to specify username&lt;/li&gt;
   &lt;li&gt;-i &lt;em&gt;filename&lt;/em&gt; Used to specify private key used for authenticating&lt;/li&gt;
@@ -204,17 +198,15 @@ unzip archivename
 &lt;p&gt;&lt;strong&gt;ssh-keygen&lt;/strong&gt;: Generates the keys
   &lt;strong&gt;ssh-copy-id&lt;/strong&gt;: Sends the public key to the server&lt;/p&gt;
 
-&lt;p&gt;#### X11 Forwarding
-  Allows you to tunnel GUI programs over ssh&lt;/p&gt;
+&lt;h3 id=&quot;x11-forwarding&quot;&gt;X11 Forwarding&lt;/h3&gt;
+&lt;p&gt;Allows you to tunnel GUI programs over ssh&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;ssh -x user@hostname&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;#### Previous SSH commands
-  rcp &amp;gt; scp
-  ftp &amp;gt; sftp&lt;/p&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">SSH</summary></entry><entry><title type="html">Logging In and Switching Users</title><link href="http://localhost:3000/linux/4_Logging_In_&_Switching_Users/" rel="alternate" type="text/html" title="Logging In and Switching Users" /><published>2020-05-25T00:00:00-04:00</published><updated>2020-05-25T00:00:00-04:00</updated><id>http://localhost:3000/linux/4_Logging_In_&amp;_Switching_Users</id><content type="html" xml:base="http://localhost:3000/linux/4_Logging_In_&amp;_Switching_Users/">&lt;h1 id=&quot;logging-in-and-switching-users&quot;&gt;Logging In and Switching Users&lt;/h1&gt;
-
-&lt;h3 id=&quot;su-command&quot;&gt;su command&lt;/h3&gt;
+&lt;h3 id=&quot;previous-ssh-commands&quot;&gt;Previous SSH commands&lt;/h3&gt;
+&lt;p&gt;rcp &amp;gt; scp
+  ftp &amp;gt; sftp&lt;/p&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">Common Flags -l Used to specify username -i filename Used to specify private key used for authenticating -F filename Used for specifying which config file is used, default is: ~/.ssh/config</summary></entry><entry><title type="html">Logging In and Switching Users</title><link href="http://localhost:3000/linux/4_Logging_In_&_Switching_Users/" rel="alternate" type="text/html" title="Logging In and Switching Users" /><published>2020-05-25T00:00:00-04:00</published><updated>2020-05-25T00:00:00-04:00</updated><id>http://localhost:3000/linux/4_Logging_In_&amp;_Switching_Users</id><content type="html" xml:base="http://localhost:3000/linux/4_Logging_In_&amp;_Switching_Users/">&lt;h3 id=&quot;su-command&quot;&gt;su command&lt;/h3&gt;
 &lt;p&gt;switch user command&lt;/p&gt;
 
 &lt;p&gt;Sign in as root&lt;/p&gt;
@@ -237,7 +229,7 @@ unzip archivename
   &lt;li&gt;
     &lt;p&gt;.bashrc: interactive shell, is the place to put stuff that applies only to bash itself, such as alias and function definitions, shell options, and prompt settings.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">Logging In and Switching Users</summary></entry><entry><title type="html">Grep and RegEx</title><link href="http://localhost:3000/linux/1_Grep_&_Regex/" rel="alternate" type="text/html" title="Grep and RegEx" /><published>2020-05-12T00:00:00-04:00</published><updated>2020-05-12T00:00:00-04:00</updated><id>http://localhost:3000/linux/1_Grep_&amp;_Regex</id><content type="html" xml:base="http://localhost:3000/linux/1_Grep_&amp;_Regex/">&lt;h1 id=&quot;using-grep-and-regular-expressions&quot;&gt;Using grep and Regular Expressions&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">su command switch user command</summary></entry><entry><title type="html">Grep and RegEx</title><link href="http://localhost:3000/linux/1_Grep_&_Regex/" rel="alternate" type="text/html" title="Grep and RegEx" /><published>2020-05-12T00:00:00-04:00</published><updated>2020-05-12T00:00:00-04:00</updated><id>http://localhost:3000/linux/1_Grep_&amp;_Regex</id><content type="html" xml:base="http://localhost:3000/linux/1_Grep_&amp;_Regex/">&lt;h3 id=&quot;overview&quot;&gt;Overview&lt;/h3&gt;
 
 &lt;p&gt;grep = designed for finding matching patterns
 usage: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;grep pattern file options&lt;/code&gt;&lt;/p&gt;
@@ -275,9 +267,7 @@ match any character.&lt;/p&gt;
 &lt;/code&gt;bar’:&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ grep -v -e 'foo' -e 'bar' myfile
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">Using grep and Regular Expressions</summary></entry><entry><title type="html">NGNIX - Securing Virtual Hosts - HTTPS</title><link href="http://localhost:3000/nginx/9_securing_virtual_hosts_https/" rel="alternate" type="text/html" title="NGNIX - Securing Virtual Hosts - HTTPS" /><published>2020-04-22T00:00:00-04:00</published><updated>2020-04-22T00:00:00-04:00</updated><id>http://localhost:3000/nginx/9_securing_virtual_hosts_https</id><content type="html" xml:base="http://localhost:3000/nginx/9_securing_virtual_hosts_https/">&lt;h1 id=&quot;nginx---securing-virtual-hosts---https&quot;&gt;NGINX - Securing Virtual Hosts - HTTPS&lt;/h1&gt;
-
-&lt;h3 id=&quot;ssltls-configuration-examples&quot;&gt;SSL/TLS Configuration Examples&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">Overview</summary></entry><entry><title type="html">NGNIX - Securing Virtual Hosts - HTTPS</title><link href="http://localhost:3000/nginx/9_securing_virtual_hosts_https/" rel="alternate" type="text/html" title="NGNIX - Securing Virtual Hosts - HTTPS" /><published>2020-04-22T00:00:00-04:00</published><updated>2020-04-22T00:00:00-04:00</updated><id>http://localhost:3000/nginx/9_securing_virtual_hosts_https</id><content type="html" xml:base="http://localhost:3000/nginx/9_securing_virtual_hosts_https/">&lt;h3 id=&quot;ssltls-configuration-examples&quot;&gt;SSL/TLS Configuration Examples&lt;/h3&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server {
     listen              443 ssl;
@@ -319,9 +309,7 @@ listen unix:/var/run/nginx.sock;
         server_name testdomain.local www.testdomain.local;
         ssl_certificate /etc/nginx/ssl/testdomain.local/server-cert.pem;
         ssl_certificate_key /etc/nginx/ssl/testdomain.local/server-key.pem;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">NGINX - Securing Virtual Hosts - HTTPS</summary></entry><entry><title type="html">NGNIX - Rewrites</title><link href="http://localhost:3000/nginx/10_rewrites/" rel="alternate" type="text/html" title="NGNIX - Rewrites" /><published>2020-04-22T00:00:00-04:00</published><updated>2020-04-22T00:00:00-04:00</updated><id>http://localhost:3000/nginx/10_rewrites</id><content type="html" xml:base="http://localhost:3000/nginx/10_rewrites/">&lt;h1 id=&quot;nginx---rewrites&quot;&gt;NGINX - Rewrites&lt;/h1&gt;
-
-&lt;h3 id=&quot;the-rewrite-directive&quot;&gt;The rewrite directive:&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">SSL/TLS Configuration Examples</summary></entry><entry><title type="html">NGNIX - Rewrites</title><link href="http://localhost:3000/nginx/10_rewrites/" rel="alternate" type="text/html" title="NGNIX - Rewrites" /><published>2020-04-22T00:00:00-04:00</published><updated>2020-04-22T00:00:00-04:00</updated><id>http://localhost:3000/nginx/10_rewrites</id><content type="html" xml:base="http://localhost:3000/nginx/10_rewrites/">&lt;h3 id=&quot;the-rewrite-directive&quot;&gt;The rewrite directive:&lt;/h3&gt;
 &lt;p&gt;Changes part or all of the URL in a client request:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -354,9 +342,7 @@ return  403;
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;This &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rewrite&lt;/code&gt; grabs the file name after /downloads and sends the request to the URL: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://downloads.testdomain.local:9084/filename&lt;/code&gt;&lt;/p&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">NGINX - Rewrites</summary></entry><entry><title type="html">NGNIX - Configuring Virtual Hosts</title><link href="http://localhost:3000/nginx/2configuring_virtual_hosts/" rel="alternate" type="text/html" title="NGNIX - Configuring Virtual Hosts" /><published>2020-04-22T00:00:00-04:00</published><updated>2020-04-22T00:00:00-04:00</updated><id>http://localhost:3000/nginx/2configuring_virtual_hosts</id><content type="html" xml:base="http://localhost:3000/nginx/2configuring_virtual_hosts/">&lt;h2 id=&quot;nginx---configuring-virtual-hosts&quot;&gt;NGINX - Configuring Virtual Hosts&lt;/h2&gt;
-
-&lt;h4 id=&quot;virtual-host-configuration-file-locations&quot;&gt;Virtual host configuration file locations:&lt;/h4&gt;
+&lt;p&gt;This &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rewrite&lt;/code&gt; grabs the file name after /downloads and sends the request to the URL: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://downloads.testdomain.local:9084/filename&lt;/code&gt;&lt;/p&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">The rewrite directive: Changes part or all of the URL in a client request:</summary></entry><entry><title type="html">NGNIX - Configuring Virtual Hosts</title><link href="http://localhost:3000/nginx/2configuring_virtual_hosts/" rel="alternate" type="text/html" title="NGNIX - Configuring Virtual Hosts" /><published>2020-04-22T00:00:00-04:00</published><updated>2020-04-22T00:00:00-04:00</updated><id>http://localhost:3000/nginx/2configuring_virtual_hosts</id><content type="html" xml:base="http://localhost:3000/nginx/2configuring_virtual_hosts/">&lt;h4 id=&quot;virtual-host-configuration-file-locations&quot;&gt;Virtual host configuration file locations:&lt;/h4&gt;
 &lt;ul&gt;
   &lt;li&gt;/etc/nginx/conf.d&lt;/li&gt;
   &lt;li&gt;/etc/nginx/sites-available&lt;/li&gt;
@@ -397,9 +383,7 @@ return  403;
   &lt;li&gt;Line the error is on in that file&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;This is why we isolate virtual host configuration files!&lt;/p&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">NGINX - Configuring Virtual Hosts</summary></entry><entry><title type="html">NGINX - Configuring Custom Error Pages in NGINX</title><link href="http://localhost:3000/nginx/3_configuring_custom_error_pages/" rel="alternate" type="text/html" title="NGINX - Configuring Custom Error Pages in NGINX" /><published>2020-04-22T00:00:00-04:00</published><updated>2020-04-22T00:00:00-04:00</updated><id>http://localhost:3000/nginx/3_configuring_custom_error_pages</id><content type="html" xml:base="http://localhost:3000/nginx/3_configuring_custom_error_pages/">&lt;h1 id=&quot;configuring-custom-error-pages-in-nginx&quot;&gt;Configuring Custom Error Pages in NGINX&lt;/h1&gt;
-
-&lt;h3 id=&quot;why-custom-error-pages&quot;&gt;Why Custom Error Pages?&lt;/h3&gt;
+&lt;p&gt;This is why we isolate virtual host configuration files!&lt;/p&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">Virtual host configuration file locations: /etc/nginx/conf.d /etc/nginx/sites-available /etc/nginx/sites-enabled</summary></entry><entry><title type="html">NGINX - Configuring Custom Error Pages in NGINX</title><link href="http://localhost:3000/nginx/3_configuring_custom_error_pages/" rel="alternate" type="text/html" title="NGINX - Configuring Custom Error Pages in NGINX" /><published>2020-04-22T00:00:00-04:00</published><updated>2020-04-22T00:00:00-04:00</updated><id>http://localhost:3000/nginx/3_configuring_custom_error_pages</id><content type="html" xml:base="http://localhost:3000/nginx/3_configuring_custom_error_pages/">&lt;h3 id=&quot;why-custom-error-pages&quot;&gt;Why Custom Error Pages?&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Match “look and feel” of the site&lt;/li&gt;
   &lt;li&gt;Provide customized information&lt;/li&gt;
@@ -434,4 +418,4 @@ error_page 404 403 /testdomain_other_error.html;
         location = /testdomain_other_error.html {
                 root /var/www/html;
                 internal;
-        }&lt;/code&gt;&lt;/p&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">Configuring Custom Error Pages in NGINX</summary></entry></feed>
+        }&lt;/code&gt;&lt;/p&gt;</content><author><name>Daniel VanderWal</name></author><summary type="html">Why Custom Error Pages? Match “look and feel” of the site Provide customized information “Sanitize” server information “Catch all” for response codes that don’t require a unique error page Configure “custom” action to one or more response codes</summary></entry></feed>

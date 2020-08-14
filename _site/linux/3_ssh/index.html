@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>SSH - danielvanderwal.github.io</title>
-<meta name="description" content="SSH">
+<meta name="description" content="Common Flags    -l Used to specify username   -i filename Used to specify private key used for authenticating   -F filename Used for specifying which config file is used, default is: ~/.ssh/config">
 
 
   <meta name="author" content="Daniel VanderWal">
@@ -23,7 +23,7 @@
 <meta property="og:url" content="http://localhost:3000/linux/3_ssh/">
 
 
-  <meta property="og:description" content="SSH">
+  <meta property="og:description" content="Common Flags    -l Used to specify username   -i filename Used to specify private key used for authenticating   -F filename Used for specifying which config file is used, default is: ~/.ssh/config">
 
 
 
@@ -265,7 +265,7 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="SSH">
-    <meta itemprop="description" content="SSH">
+    <meta itemprop="description" content="Common Flags  -l Used to specify username  -i filename Used to specify private key used for authenticating  -F filename Used for specifying which config file is used, default is: ~/.ssh/config">
     <meta itemprop="datePublished" content="2020-05-25T00:00:00-04:00">
     
 
@@ -300,9 +300,7 @@
 
       <section class="page__content" itemprop="text">
         
-        <h1 id="ssh">SSH</h1>
-
-<h3 id="common-flags">Common Flags</h3>
+        <h3 id="common-flags">Common Flags</h3>
 <ul>
   <li>-l Used to specify username</li>
   <li>-i <em>filename</em> Used to specify private key used for authenticating</li>
@@ -324,14 +322,14 @@
 <p><strong>ssh-keygen</strong>: Generates the keys
   <strong>ssh-copy-id</strong>: Sends the public key to the server</p>
 
-<p>#### X11 Forwarding
-  Allows you to tunnel GUI programs over ssh</p>
+<h3 id="x11-forwarding">X11 Forwarding</h3>
+<p>Allows you to tunnel GUI programs over ssh</p>
 <blockquote>
   <p>ssh -x user@hostname</p>
 </blockquote>
 
-<p>#### Previous SSH commands
-  rcp &gt; scp
+<h3 id="previous-ssh-commands">Previous SSH commands</h3>
+<p>rcp &gt; scp
   ftp &gt; sftp</p>
 
         
@@ -426,7 +424,7 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">Creating and Manipulating files
+    <p class="archive__item-excerpt" itemprop="description">Ways to modify files:
 
 </p>
   </article>
@@ -467,7 +465,9 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">Compressing and Decompressing Files
+    <p class="archive__item-excerpt" itemprop="description">Creating archive
+tar cvf example.tar /sourcedir
+
 
 </p>
   </article>
@@ -508,7 +508,7 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">IO Redirection
+    <p class="archive__item-excerpt" itemprop="description">Overview
 
 </p>
   </article>
@@ -549,7 +549,8 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">Logging In and Switching Users
+    <p class="archive__item-excerpt" itemprop="description">su command
+switch user command
 
 </p>
   </article>

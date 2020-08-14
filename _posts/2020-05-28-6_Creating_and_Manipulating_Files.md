@@ -5,8 +5,6 @@ categories:
   - Linux
 ---
 
-# Creating and Manipulating files
-
 ### Ways to modify files:
 
 1. touch: creates a zero byte files

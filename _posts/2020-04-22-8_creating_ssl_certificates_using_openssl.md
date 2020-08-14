@@ -5,8 +5,6 @@ categories:
   - NGINX
 ---
 
-# Creating SSL Certificates Using OpenSSL
-
 ### Create a Certificate Authority Private Key and Certificate
 
 First, we'll need a place to store our certificates:

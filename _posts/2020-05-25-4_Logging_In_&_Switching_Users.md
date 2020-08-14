@@ -5,8 +5,6 @@ categories:
   - Linux
 ---
 
-# Logging In and Switching Users
-
 ### su command
 switch user command
 

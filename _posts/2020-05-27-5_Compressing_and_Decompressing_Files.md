@@ -5,8 +5,6 @@ categories:
   - Linux
 ---
 
-# Compressing and Decompressing Files
-
 ### Creating archive
 ```bash
 tar cvf example.tar /sourcedir

@@ -5,8 +5,6 @@ categories:
   - NGINX
 ---
 
-# NGINX - Securing Virtual Hosts - HTTPS
-
 ### SSL/TLS Configuration Examples
 
 ```

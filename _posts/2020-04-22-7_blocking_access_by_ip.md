@@ -5,8 +5,6 @@ categories:
   - NGINX
 ---
 
-# Blocking Access by IP with NGINX
-
 - `allow` directive
 - `deny` directive
 

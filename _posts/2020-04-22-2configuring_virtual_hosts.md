@@ -5,8 +5,6 @@ categories:
   - NGINX
 ---
 
-## NGINX - Configuring Virtual Hosts
-
 #### Virtual host configuration file locations:
   - /etc/nginx/conf.d
   - /etc/nginx/sites-available

@@ -5,8 +5,6 @@ categories:
   - NGINX
 ---
 
-# Configuring Custom Error Pages in NGINX
-
 ### Why Custom Error Pages?
 - Match "look and feel" of the site
 - Provide customized information

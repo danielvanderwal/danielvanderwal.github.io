@@ -5,8 +5,6 @@ categories:
   - NGINX
 ---
 
-# The /etc/nginx directory:
-
 ### Location for all configuration files:
 - nginx.conf
   - Virtual host configuration files:
