@@ -300,9 +300,9 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="nginx---directives---upstream--location--return">NGINX - Directives - Upstream / Location / Return</h2>
+        <h1 id="nginx---directives---upstream--location--return">NGINX - Directives - Upstream / Location / Return</h1>
 
-<h4 id="the-upstream-directive">The upstream directive</h4>
+<h3 id="the-upstream-directive">The upstream directive</h3>
 <p>The upstream directive defines groups of servers that can be referenced by the <code class="language-plaintext highlighter-rouge">proxy_pass, fastcgi_pass, uwsgi_pass, scgi_pass, memcached_pass</code>, and <code class="language-plaintext highlighter-rouge">grpc_pass</code> directives:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   upstream testdomainapp  {
@@ -314,7 +314,7 @@
 
 <p>By default, requests are distributed between the servers using a weighted round-robin balancing method.</p>
 
-<h4 id="the-location-directive">The location directive</h4>
+<h3 id="the-location-directive">The location directive</h3>
 <p>The location directive sets configuration depending on a request URI:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location / {
@@ -329,7 +329,7 @@
 
 <p>A location can either be defined by a prefix string, or by a regular expression.</p>
 
-<h4 id="the-return-directive">The return directive</h4>
+<h3 id="the-return-directive">The return directive</h3>
 <p>The return directive stops processing and returns the specified code to a client:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location /downloads {
@@ -344,25 +344,6 @@
       <footer class="page__meta">
         
         
-  
-
-
-  
-  
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
-    <span itemprop="keywords">
-    
-      
-      
-      <a href="/tags/#nginx-directives-upstream-location-return" class="page__taxonomy-item" rel="tag">nginx directives upstream location return</a>
-    
-    </span>
-  </p>
-
-
 
 
   

@@ -300,9 +300,9 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="configuring-custom-error-pages-in-nginx">Configuring Custom Error Pages in NGINX</h2>
+        <h1 id="configuring-custom-error-pages-in-nginx">Configuring Custom Error Pages in NGINX</h1>
 
-<h4 id="why-custom-error-pages">Why Custom Error Pages?</h4>
+<h3 id="why-custom-error-pages">Why Custom Error Pages?</h3>
 <ul>
   <li>Match “look and feel” of the site</li>
   <li>Provide customized information</li>
@@ -311,7 +311,7 @@
   <li>Configure “custom” action to one or more response codes</li>
 </ul>
 
-<h4 id="configure-a-single-error">Configure a Single Error:</h4>
+<h3 id="configure-a-single-error">Configure a Single Error:</h3>
 <p>Custom error pages are configured using the <code class="language-plaintext highlighter-rouge">error_page</code> directive:</p>
 
 <p>error_page 404 /testdomain_404.html;
@@ -329,7 +329,7 @@ location = /testdomain_404.html {
         internal;
 }</code></p>
 
-<h4 id="map-multiple-errors-to-a-page">Map Multiple Errors to a Page</h4>
+<h3 id="map-multiple-errors-to-a-page">Map Multiple Errors to a Page</h3>
 <p>We can map more than one response code to a single page using the error_page directive, as shown here:</p>
 
 <p><code class="language-plaintext highlighter-rouge">
@@ -345,25 +345,6 @@ error_page 404 403 /testdomain_other_error.html;
       <footer class="page__meta">
         
         
-  
-
-
-  
-  
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
-    <span itemprop="keywords">
-    
-      
-      
-      <a href="/tags/#nginx-error-pages" class="page__taxonomy-item" rel="tag">nginx error pages</a>
-    
-    </span>
-  </p>
-
-
 
 
   

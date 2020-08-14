@@ -300,9 +300,9 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="nginx---securing-virtual-hosts---https">NGINX - Securing Virtual Hosts - HTTPS</h2>
+        <h1 id="nginx---securing-virtual-hosts---https">NGINX - Securing Virtual Hosts - HTTPS</h1>
 
-<h4 id="ssltls-configuration-examples">SSL/TLS Configuration Examples</h4>
+<h3 id="ssltls-configuration-examples">SSL/TLS Configuration Examples</h3>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
     listen              443 ssl;
@@ -325,7 +325,7 @@ listen [::]:8000;
 listen unix:/var/run/nginx.sock;
 </code></pre></div></div>
 
-<h4 id="verify-the-self-signed-certificate-for-the-nginx-server">Verify the Self-Signed Certificate for the NGINX Server</h4>
+<h3 id="verify-the-self-signed-certificate-for-the-nginx-server">Verify the Self-Signed Certificate for the NGINX Server</h3>
 
 <p>Verify the X509 server certificate:</p>
 
@@ -334,7 +334,7 @@ listen unix:/var/run/nginx.sock;
 
 <p>We should see the following: <code class="language-plaintext highlighter-rouge">server-cert.pem: OK</code></p>
 
-<h4 id="configure-the-virtual-host-to-use-ssltls">Configure the virtual host to use SSL/TLS</h4>
+<h3 id="configure-the-virtual-host-to-use-ssltls">Configure the virtual host to use SSL/TLS</h3>
 
 <p>Change the <code class="language-plaintext highlighter-rouge">listen</code> line to <code class="language-plaintext highlighter-rouge">443 ssl</code> and add the <code class="language-plaintext highlighter-rouge">ssl_certificate</code> and <code class="language-plaintext highlighter-rouge">ssl_certificate_key</code> directives:</p>
 
@@ -352,25 +352,6 @@ listen unix:/var/run/nginx.sock;
       <footer class="page__meta">
         
         
-  
-
-
-  
-  
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
-    <span itemprop="keywords">
-    
-      
-      
-      <a href="/tags/#nginx-secure-ssl-tls-certificate-x509-key-443" class="page__taxonomy-item" rel="tag">nginx secure ssl tls certificate x509 key 443</a>
-    
-    </span>
-  </p>
-
-
 
 
   

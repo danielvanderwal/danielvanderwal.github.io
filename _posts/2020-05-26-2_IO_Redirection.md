@@ -3,11 +3,9 @@ title: "IO Redirection"
 date: 2020-05-26
 categories:
   - Linux
-tags:
-  - linux pipes redirection input output stdin stout stderr
 ---
 
-## IO Redirection
+# IO Redirection
 
 
 - stdin - keyboard

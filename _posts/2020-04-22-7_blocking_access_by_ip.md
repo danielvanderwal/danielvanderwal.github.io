@@ -3,16 +3,14 @@ title: "NGNIX - Blocking Access by IP with NGINX"
 date: 2020-04-22
 categories:
   - NGINX
-tags:
-  - nginx ip filtering blocking allow deny
 ---
 
-## Blocking Access by IP with NGINX
+# Blocking Access by IP with NGINX
 
 - `allow` directive
 - `deny` directive
 
-#### Restrict Access By IP Address
+### Restrict Access By IP Address
 The `ngx_http_access_module` allows limiting access to certain client addresses. Rules are checked in order until the first match is found. The `allow` and `deny` directives can be used within the `http`, `server`, `location`, and `limit_except` directives:
 
 ```

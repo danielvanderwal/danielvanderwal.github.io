@@ -5,9 +5,9 @@ categories:
   - NGINX
 ---
 
-## The /etc/nginx directory:
+# The /etc/nginx directory:
 
-#### Location for all configuration files:
+### Location for all configuration files:
 - nginx.conf
   - Virtual host configuration files:
       - conf.d directory (RHEL)
@@ -18,7 +18,7 @@ categories:
     - modules-available directory
     - modules-enabled directory
 
-#### The nginx.conf file:
+### The nginx.conf file:
 
 ***Defines global configuration***
 
@@ -32,7 +32,7 @@ categories:
 
 **Location(s) of module and virtual host configuration files (via include)**
 
-#### How to check the NGINX configuration:
+### How to check the NGINX configuration:
 
 **Use *nginx -t* before every reload!**
 

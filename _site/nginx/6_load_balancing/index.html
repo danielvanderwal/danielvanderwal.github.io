@@ -300,9 +300,9 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="nginx---load-balancing---an-introduction">NGINX - Load Balancing - An Introduction</h2>
+        <h1 id="nginx---load-balancing---an-introduction">NGINX - Load Balancing - An Introduction</h1>
 
-<h4 id="the-upstream-directive">The upstream directive</h4>
+<h3 id="the-upstream-directive">The upstream directive</h3>
 <p>The upstream directive defines groups of servers that can be referenced by the <code class="language-plaintext highlighter-rouge">proxy_pass</code>, <code class="language-plaintext highlighter-rouge">fastcgi_pass</code>, <code class="language-plaintext highlighter-rouge">uwsgi_pass</code>, <code class="language-plaintext highlighter-rouge">scgi_pass</code>, <code class="language-plaintext highlighter-rouge">memcached_pass</code>, and <code class="language-plaintext highlighter-rouge">grpc_pass</code> directives:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>upstream testdomainapp  {
@@ -314,7 +314,7 @@
 
 <p>By default, requests are distributed between the servers using a weighted round-robin balancing method.</p>
 
-<h4 id="the-location-directive">The location directive</h4>
+<h3 id="the-location-directive">The location directive</h3>
 
 <p>The <code class="language-plaintext highlighter-rouge">location</code> directive is the other part of the equation that enables the <code class="language-plaintext highlighter-rouge">upstream</code> directive:</p>
 
@@ -325,7 +325,7 @@
 
 <p>In this example, we are using the <code class="language-plaintext highlighter-rouge">/app</code> location to front-end the <code class="language-plaintext highlighter-rouge">testdomainapp</code> server group, defined in the <code class="language-plaintext highlighter-rouge">upstream</code> directive.</p>
 
-<h4 id="the-server-directive">The server directive</h4>
+<h3 id="the-server-directive">The server directive</h3>
 
 <p>The <code class="language-plaintext highlighter-rouge">server</code> directive defines an individual server that is part of the <code class="language-plaintext highlighter-rouge">upstream</code> group:</p>
 
@@ -353,25 +353,6 @@
       <footer class="page__meta">
         
         
-  
-
-
-  
-  
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
-    <span itemprop="keywords">
-    
-      
-      
-      <a href="/tags/#nginx-load-balancing-distributed" class="page__taxonomy-item" rel="tag">nginx load balancing distributed</a>
-    
-    </span>
-  </p>
-
-
 
 
   

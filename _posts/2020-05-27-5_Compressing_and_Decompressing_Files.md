@@ -3,23 +3,21 @@ title: "Compressing and Decompressing Files"
 date: 2020-05-27
 categories:
   - Linux
-tags:
-  - linux compression decompression tar bzip2 zip archive
 ---
 
-## Compressing and Decompressing Files
+# Compressing and Decompressing Files
 
-#### Creating archive
+### Creating archive
 ```bash
 tar cvf example.tar /sourcedir
 ```
 
-#### Extracting archive
+### Extracting archive
 ```bash
 tar xvf example.tar
 ```
 
-#### Two main compression commands:
+### Two main compression commands:
 1. gzip
 1. bzip2
 

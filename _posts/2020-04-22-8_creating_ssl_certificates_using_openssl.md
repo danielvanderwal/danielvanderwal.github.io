@@ -3,13 +3,11 @@ title: "NGNIX - Creating SSL Certificates Using OpenSSL"
 date: 2020-04-22
 categories:
   - NGINX
-tags:
-  - nginx ssl certificate openssl
 ---
 
-## Creating SSL Certificates Using OpenSSL
+# Creating SSL Certificates Using OpenSSL
 
-#### Create a Certificate Authority Private Key and Certificate
+### Create a Certificate Authority Private Key and Certificate
 
 First, we'll need a place to store our certificates:
 ```
@@ -31,7 +29,7 @@ openssl req -new -x509 -nodes -days 365000 \
       -key ca-key.pem -out ca-cert.pem
 ```
 
-#### Create a Private Key and a Self-Signed Certificate for the NGINX Server
+### Create a Private Key and a Self-Signed Certificate for the NGINX Server
 
 Generate a private key and create a certificate request for the NGINX server. We will have to answer some questions:
 
@@ -56,7 +54,7 @@ We need to allow the `nginx` user access to the certificates. Add 'read' permiss
 ```
 chmod 644 *
 ```
-#### Verify the Self-Signed Certificate for the NGINX Server
+### Verify the Self-Signed Certificate for the NGINX Server
 
 Let’s verify that the X509 certificate was correctly generated:
 ```

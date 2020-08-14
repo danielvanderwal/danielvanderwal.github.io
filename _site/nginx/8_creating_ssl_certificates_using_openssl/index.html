@@ -300,9 +300,9 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="creating-ssl-certificates-using-openssl">Creating SSL Certificates Using OpenSSL</h2>
+        <h1 id="creating-ssl-certificates-using-openssl">Creating SSL Certificates Using OpenSSL</h1>
 
-<h4 id="create-a-certificate-authority-private-key-and-certificate">Create a Certificate Authority Private Key and Certificate</h4>
+<h3 id="create-a-certificate-authority-private-key-and-certificate">Create a Certificate Authority Private Key and Certificate</h3>
 
 <p>First, we’ll need a place to store our certificates:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir -p /etc/nginx/certificates
@@ -320,7 +320,7 @@
       -key ca-key.pem -out ca-cert.pem
 </code></pre></div></div>
 
-<h4 id="create-a-private-key-and-a-self-signed-certificate-for-the-nginx-server">Create a Private Key and a Self-Signed Certificate for the NGINX Server</h4>
+<h3 id="create-a-private-key-and-a-self-signed-certificate-for-the-nginx-server">Create a Private Key and a Self-Signed Certificate for the NGINX Server</h3>
 
 <p>Generate a private key and create a certificate request for the NGINX server. We will have to answer some questions:</p>
 
@@ -341,7 +341,7 @@ Generate a self-signed X509 certificate for the NGINX server from the certificat
 <p>We need to allow the <code class="language-plaintext highlighter-rouge">nginx</code> user access to the certificates. Add ‘read’ permissions for ‘group’ and ‘other’:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod 644 *
 </code></pre></div></div>
-<h4 id="verify-the-self-signed-certificate-for-the-nginx-server">Verify the Self-Signed Certificate for the NGINX Server</h4>
+<h3 id="verify-the-self-signed-certificate-for-the-nginx-server">Verify the Self-Signed Certificate for the NGINX Server</h3>
 
 <p>Let’s verify that the X509 certificate was correctly generated:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl verify -CAfile ca-cert.pem server-cert.pem
@@ -354,25 +354,6 @@ Generate a self-signed X509 certificate for the NGINX server from the certificat
       <footer class="page__meta">
         
         
-  
-
-
-  
-  
-  
-
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
-    <span itemprop="keywords">
-    
-      
-      
-      <a href="/tags/#nginx-ssl-certificate-openssl" class="page__taxonomy-item" rel="tag">nginx ssl certificate openssl</a>
-    
-    </span>
-  </p>
-
-
 
 
   

@@ -3,19 +3,11 @@ title: "Creating and Manipulating files"
 date: 2020-05-28
 categories:
   - Linux
-tags:
-  - linux
-  - touch 
-  - cp
-  - mv 
-  - rm 
-  - find 
-  - locate
 ---
 
-## Creating and Manipulating files
+# Creating and Manipulating files
 
-#### Ways to modify files:
+### Ways to modify files:
 
 1. touch: creates a zero byte files
 1. cp: copies one file to another
@@ -38,7 +30,7 @@ find /etc -name httpd.conf
 ```
 Will find all files with names that end with .txt and output their full path to stdout.
 
-##### Common 'Find' Flags
+### Common 'Find' Flags
 
 - **type**
   - f = regular files
@@ -56,7 +48,7 @@ Will find all files with names that end with .txt and output their full path to 
 - **user**
   - File is owned by user (username or UID)
 
-##### 'Locate' command
+### 'Locate' command
 Relies on a database in /etc/cron.daily/mlocate. Update by running 'updatedb'.
 
 ```bash

@@ -3,13 +3,11 @@ title: "NGNIX - Securing Virtual Hosts - HTTPS"
 date: 2020-04-22
 categories:
   - NGINX
-tags:
-  - nginx secure ssl tls certificate x509 key 443
 ---
 
-## NGINX - Securing Virtual Hosts - HTTPS
+# NGINX - Securing Virtual Hosts - HTTPS
 
-#### SSL/TLS Configuration Examples
+### SSL/TLS Configuration Examples
 
 ```
 server {
@@ -34,7 +32,7 @@ listen [::]:8000;
 listen unix:/var/run/nginx.sock;
 ```
 
-#### Verify the Self-Signed Certificate for the NGINX Server
+### Verify the Self-Signed Certificate for the NGINX Server
 
 Verify the X509 server certificate:
 
@@ -44,7 +42,7 @@ openssl verify -CAfile /etc/nginx/ssl/testdomain.local/ca-cert.pem /etc/nginx/ss
 
 We should see the following: `server-cert.pem: OK`
 
-#### Configure the virtual host to use SSL/TLS
+### Configure the virtual host to use SSL/TLS
 
 Change the `listen` line to `443 ssl` and add the `ssl_certificate` and `ssl_certificate_key` directives:
 

@@ -3,13 +3,11 @@ title: "NGNIX - Directives (Upsteam, Location, Return)"
 date: 2020-04-22
 categories:
   - NGINX
-tags:
-  - nginx directives upstream location return
 ---
 
-## NGINX - Directives - Upstream / Location / Return
+# NGINX - Directives - Upstream / Location / Return
 
-#### The upstream directive
+### The upstream directive
 The upstream directive defines groups of servers that can be referenced by the `proxy_pass, fastcgi_pass, uwsgi_pass, scgi_pass, memcached_pass`, and `grpc_pass` directives:
 
 ```
@@ -22,7 +20,7 @@ The upstream directive defines groups of servers that can be referenced by the `
 
 By default, requests are distributed between the servers using a weighted round-robin balancing method.
 
-#### The location directive
+### The location directive
 The location directive sets configuration depending on a request URI:
 
 ```
@@ -39,7 +37,7 @@ location ~ /\.ht {
 
 A location can either be defined by a prefix string, or by a regular expression.
 
-#### The return directive
+### The return directive
 The return directive stops processing and returns the specified code to a client:
 
 ```
