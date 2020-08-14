@@ -9,24 +9,21 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>danielvanderwal.github.io</title>
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<!-- begin _includes/seo.html --><title>Grep and RegEx - danielvanderwal.github.io</title>
+<meta name="description" content="Using grep and Regular Expressions">
 
 
   <meta name="author" content="Daniel VanderWal">
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="danielvanderwal.github.io">
-<meta property="og:title" content="danielvanderwal.github.io">
-<meta property="og:url" content="http://localhost:3000/">
+<meta property="og:title" content="Grep and RegEx">
+<meta property="og:url" content="http://localhost:3000/linux/1_Grep_&_Regex/">
 
 
-  <meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
-
-
-
+  <meta property="og:description" content="Using grep and Regular Expressions">
 
 
 
@@ -34,13 +31,16 @@
 
 
 
+  <meta property="article:published_time" content="2020-05-12T00:00:00-04:00">
 
 
-<link rel="canonical" href="http://localhost:3000/">
 
 
 
-  <link rel="next" href="http://localhost:3000/page2/">
+
+<link rel="canonical" href="http://localhost:3000/linux/1_Grep_&_Regex/">
+
+
 
 
 <script type="application/ld+json">
@@ -100,7 +100,7 @@
 
   </head>
 
-  <body class="layout--home">
+  <body class="layout--single">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -257,23 +257,163 @@
 
 
 
-  <div class="archive">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Grep and RegEx">
+    <meta itemprop="description" content="Using grep and Regular Expressions">
+    <meta itemprop="datePublished" content="2020-05-12T00:00:00-04:00">
     
-      <h1 id="page-title" class="page__title"></h1>
-    
-    
 
-<h3 class="archive__subtitle">Recent Posts</h3>
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Grep and RegEx
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
 
 
 
-<div class="entries-list">
+
+  less than 1 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="using-grep-and-regular-expressions">Using grep and Regular Expressions</h2>
+
+<p>grep = designed for finding matching patterns
+usage: <code class="language-plaintext highlighter-rouge">grep pattern file options</code></p>
+
+<p>e.g. <code class="language-plaintext highlighter-rouge">find . -name \*.txt | grep taxes -i</code></p>
+
+<h3 id="options">Options</h3>
+<p>-i = case insensitive
+-r = recursive through directories
+-v = finds all instances of no pattern match
+-w = serches for single word and not just any instance</p>
+
+<p>Examples</p>
+
+<p>To find the pattern ‘taxes’ recursively
+    <code class="language-plaintext highlighter-rouge">$ grep taxes * -ri</code>
+    The star looks at all files in the current directory</p>
+
+<p>To find all occurrences of the word `patricia’ in a file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ grep 'patricia' myfile
+</code></pre></div></div>
+
+<p>To find all occurrences of the pattern `.Pp’ at the beginning of a line:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ grep '^\.Pp' myfile
+</code></pre></div></div>
+
+<p>The apostrophes ensure the entire expression is evaluated by grep instead
+of by the user’s shell.  The caret \^ matches the null string at the
+beginning of a line, and the \ escapes the ‘.’, which would otherwise
+match any character.</p>
+
+<p>To find all lines in a file which do not contain the words <code class="language-plaintext highlighter-rouge">foo' or
+</code>bar’:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ grep -v -e 'foo' -e 'bar' myfile
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
   
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
     
+      
+      
+      <a href="/tags/#linux-grep-regex" class="page__taxonomy-item" rel="tag">linux grep regex</a>
+    
+    </span>
+  </p>
 
 
 
-<div class="list__item">
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#linux" class="page__taxonomy-item" rel="tag">Linux</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-05-12T00:00:00-04:00">May 12, 2020</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Grep+and+RegEx%20http%3A%2F%2Flocalhost%3A3000%2Flinux%2F1_Grep_%26_Regex%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2Flinux%2F1_Grep_%26_Regex%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A3000%2Flinux%2F1_Grep_%26_Regex%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/nginx/9_securing_virtual_hosts_https/" class="pagination--pager" title="NGNIX - Securing Virtual Hosts - HTTPS
+">Previous</a>
+    
+    
+      <a href="/linux/3_ssh/" class="pagination--pager" title="SSH
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -298,12 +438,12 @@
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -328,12 +468,12 @@
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -358,12 +498,12 @@
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -388,87 +528,13 @@
   </article>
 </div>
 
+        
+      </div>
+    </div>
   
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/linux/3_ssh/" rel="permalink">SSH
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  less than 1 minute read
-
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">SSH
-
-</p>
-  </article>
-</div>
-
   
 </div>
 
-
-<nav class="pagination">
-  
-  <ul>
-    
-    
-    <li><a href="#" class="disabled"><span aria-hidden="true">Previous</span></a></li>
-    
-
-    
-    
-      <li><a href="#" class="disabled current">1</a></li>
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-        
-        
-        
-        <li><a href="/page2/">2</a></li>
-      
-    
-
-    
-    
-
-    
-      <li><a href="/page3/">3</a></li>
-    
-
-    
-    
-      <li><a href="/page2/">Next</a></li>
-    
-  </ul>
-</nav>
-
-
-
-  </div>
-</div>
     </div>
 
     

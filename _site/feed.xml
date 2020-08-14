@@ -1,84 +1,437 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:3000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:3000/" rel="alternate" type="text/html" /><updated>2020-05-15T13:52:02-04:00</updated><id>http://localhost:3000/feed.xml</id><title type="html">danielvanderwal.github.io</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Daniel VanderWal</name></author><entry><title type="html">NGINX Basics</title><link href="http://localhost:3000/blog/1_basic_nginx_server_configuration/" rel="alternate" type="text/html" title="NGINX Basics" /><published>2020-04-08T00:00:00-04:00</published><updated>2020-04-08T00:00:00-04:00</updated><id>http://localhost:3000/blog/1_basic_nginx_server_configuration</id><content type="html" xml:base="http://localhost:3000/blog/1_basic_nginx_server_configuration/">&lt;h2 id=&quot;lesson-objectives&quot;&gt;Lesson Objectives:&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:3000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:3000/" rel="alternate" type="text/html" /><updated>2020-07-30T20:27:25-04:00</updated><id>http://localhost:3000/feed.xml</id><title type="html">danielvanderwal.github.io</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Daniel VanderWal</name></author><entry><title type="html">Creating and Manipulating files</title><link href="http://localhost:3000/linux/6_Creating_and_Manipulating_Files/" rel="alternate" type="text/html" title="Creating and Manipulating files" /><published>2020-05-28T00:00:00-04:00</published><updated>2020-05-28T00:00:00-04:00</updated><id>http://localhost:3000/linux/6_Creating_and_Manipulating_Files</id><content type="html" xml:base="http://localhost:3000/linux/6_Creating_and_Manipulating_Files/">&lt;h2 id=&quot;creating-and-manipulating-files&quot;&gt;Creating and Manipulating files&lt;/h2&gt;
+
+&lt;h4 id=&quot;ways-to-modify-files&quot;&gt;Ways to modify files:&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;touch: creates a zero byte files&lt;/li&gt;
+  &lt;li&gt;cp: copies one file to another&lt;/li&gt;
+  &lt;li&gt;mv: moves a file from one location to another, even across file systems. Also how to change the name of a file.&lt;/li&gt;
+  &lt;li&gt;rm: removes the inode-filename link. The data still exists on the disk drive, however.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;manipulating-files&quot;&gt;Manipulating Files&lt;/h3&gt;
+
+&lt;p&gt;Examples:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Explore the /etc/nginx directory&lt;/li&gt;
-  &lt;li&gt;Explore the nginx.conf file&lt;/li&gt;
-  &lt;li&gt;Learn how to check the NGINX configuration using nginx -t&lt;/li&gt;
-  &lt;li&gt;Learn how to reload the NGINX configuration&lt;/li&gt;
+  &lt;li&gt;Vim, Nano, ed, or Emacs&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;the-etcnginx-directory&quot;&gt;The /etc/nginx directory:&lt;/h2&gt;
+&lt;h3 id=&quot;finding-files&quot;&gt;Finding files&lt;/h3&gt;
 
-&lt;h4 id=&quot;location-for-all-configuration-files&quot;&gt;Location for all configuration files:&lt;/h4&gt;
+&lt;p&gt;The &lt;strong&gt;&lt;em&gt;find&lt;/em&gt;&lt;/strong&gt; command can search a directory for matching criteria.&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-name&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.txt
+find /etc &lt;span class=&quot;nt&quot;&gt;-name&lt;/span&gt; httpd.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Will find all files with names that end with .txt and output their full path to stdout.&lt;/p&gt;
+
+&lt;h5 id=&quot;common-find-flags&quot;&gt;Common ‘Find’ Flags&lt;/h5&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;nginx.conf
+  &lt;li&gt;&lt;strong&gt;type&lt;/strong&gt;
     &lt;ul&gt;
-      &lt;li&gt;Virtual host configuration files:
-        &lt;ul&gt;
-          &lt;li&gt;conf.d directory (RHEL)&lt;/li&gt;
-          &lt;li&gt;sites-available directory (debian/ubuntu)&lt;/li&gt;
-          &lt;li&gt;sites-enabled directory (debian/ubuntu)&lt;/li&gt;
-        &lt;/ul&gt;
+      &lt;li&gt;f = regular files
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; f &lt;span class=&quot;nt&quot;&gt;-name&lt;/span&gt; httpd.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
       &lt;/li&gt;
-      &lt;li&gt;Module configuration files:
-        &lt;ul&gt;
-          &lt;li&gt;conf.d directory&lt;/li&gt;
-          &lt;li&gt;modules-available directory&lt;/li&gt;
-          &lt;li&gt;modules-enabled directory&lt;/li&gt;
-        &lt;/ul&gt;
+      &lt;li&gt;d = directory
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; d &lt;span class=&quot;nt&quot;&gt;-name&lt;/span&gt; html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;I = symbolic link
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; l &lt;span class=&quot;nt&quot;&gt;-name&lt;/span&gt; redhat-release
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;the-nginxconf-file&quot;&gt;The nginx.conf file:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Defines global configuration&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Server process configuration:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;User server runs as&lt;/li&gt;
-  &lt;li&gt;Location of PID file&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Performance:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;worker_processes&lt;/li&gt;
-  &lt;li&gt;worker_connections&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Location(s) of module and virtual host configuration files (via include)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;how-to-check-the-nginx-configuration&quot;&gt;How to check the NGINX configuration:&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;Use &lt;em&gt;nginx -t&lt;/em&gt; before every reload!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Reloading the NGINX Configuration:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Using systemctl:
+  &lt;li&gt;&lt;strong&gt;user&lt;/strong&gt;
     &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;Reload&lt;/strong&gt; - Doesn’t drop existing connections&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Restart&lt;/strong&gt; - Drops existing connections&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Using NGINX - nginx -s:
-    &lt;ul&gt;
-      &lt;li&gt;Validates the configuration before restarting&lt;/li&gt;
+      &lt;li&gt;File is owned by user (username or UID)&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The safe bet is to execute &lt;strong&gt;nginx -t&lt;/strong&gt; before a reload or restart!&lt;/p&gt;</content><author><name>Daniel VanderWal</name></author><category term="nginx" /><summary type="html">Lesson Objectives: Explore the /etc/nginx directory Explore the nginx.conf file Learn how to check the NGINX configuration using nginx -t Learn how to reload the NGINX configuration</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:3000/blog/welcome-to-jekyll/" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2019-04-18T15:34:30-04:00</published><updated>2019-04-18T15:34:30-04:00</updated><id>http://localhost:3000/blog/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:3000/blog/welcome-to-jekyll/">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+&lt;h5 id=&quot;locate-command&quot;&gt;‘Locate’ command&lt;/h5&gt;
+&lt;p&gt;Relies on a database in /etc/cron.daily/mlocate. Update by running ‘updatedb’.&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;locate httpd.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;reading-text-files&quot;&gt;Reading Text files&lt;/h3&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;cat&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;This reads the file and outputs all of it to stdout&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;less&lt;/strong&gt; and &lt;strong&gt;more&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Also known as “pagers” these commands will output the contents of a file to the screen, but allow you to navigate through the file as well.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;head&lt;/strong&gt; and &lt;strong&gt;tail&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;These commands let you look at the lines starting at the top or bottom of the file, respectively.
+        &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; 100 messages
+&lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; 10 messages
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;h3 id=&quot;text-manipulation&quot;&gt;Text Manipulation&lt;/h3&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;sort&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Sorts&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Daniel VanderWal</name></author><category term="linux touch cp mv rm find locate" /><summary type="html">Creating and Manipulating files</summary></entry><entry><title type="html">Compressing and Decompressing Files</title><link href="http://localhost:3000/linux/5_Compressing_and_Decompressing_Files/" rel="alternate" type="text/html" title="Compressing and Decompressing Files" /><published>2020-05-27T00:00:00-04:00</published><updated>2020-05-27T00:00:00-04:00</updated><id>http://localhost:3000/linux/5_Compressing_and_Decompressing_Files</id><content type="html" xml:base="http://localhost:3000/linux/5_Compressing_and_Decompressing_Files/">&lt;h2 id=&quot;compressing-and-decompressing-files&quot;&gt;Compressing and Decompressing Files&lt;/h2&gt;
 
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;
+&lt;h4 id=&quot;creating-archive&quot;&gt;Creating archive&lt;/h4&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;cvf example.tar /sourcedir
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Daniel VanderWal</name></author><category term="Jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;h4 id=&quot;extracting-archive&quot;&gt;Extracting archive&lt;/h4&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;xvf example.tar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;two-main-compression-commands&quot;&gt;Two main compression commands:&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;gzip&lt;/li&gt;
+  &lt;li&gt;bzip2&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;gzip example:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;gzip &lt;/span&gt;bigfile.stuff
+&lt;span class=&quot;nb&quot;&gt;gzip&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; bigfile.stuff.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;bzip2 example:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bzip2 bigfile.stuff
+bzip2 &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; bigfile.stuff.bz2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;compress-an-archive&quot;&gt;Compress an archive&lt;/h3&gt;
+
+&lt;p&gt;Tar does not compress by default&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;czvf home.tar.gz /home
+
+or
+
+&lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;cvjf home.tar.bz2 /home
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Extracting:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;xzvf home.tar.gz /home
+
+or
+
+&lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;xvjf home.tar.bz2 /home
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;zip-files&quot;&gt;Zip Files&lt;/h3&gt;
+
+&lt;p&gt;Used for files that need to be managed on both Windows and Linux servers.  Zip is similar to tar, but automatically try’s to compress files.&lt;/p&gt;
+
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;zip &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; archivename /home
+unzip archivename
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Daniel VanderWal</name></author><category term="linux compression decompression tar bzip2 zip archive" /><summary type="html">Compressing and Decompressing Files</summary></entry><entry><title type="html">IO Redirection</title><link href="http://localhost:3000/linux/2_IO_Redirection/" rel="alternate" type="text/html" title="IO Redirection" /><published>2020-05-26T00:00:00-04:00</published><updated>2020-05-26T00:00:00-04:00</updated><id>http://localhost:3000/linux/2_IO_Redirection</id><content type="html" xml:base="http://localhost:3000/linux/2_IO_Redirection/">&lt;h2 id=&quot;io-redirection&quot;&gt;IO Redirection&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;stdin - keyboard&lt;/li&gt;
+  &lt;li&gt;stout - screen&lt;/li&gt;
+  &lt;li&gt;stderr - error outputs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;output-redirection&quot;&gt;Output redirection&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-al&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; listing
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;This is a test&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /var/log/messages
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;input-redirection&quot;&gt;Input redirection&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;sort&lt;/span&gt; &amp;lt; listing
+  &lt;span class=&quot;nb&quot;&gt;sort&lt;/span&gt; &amp;lt; listing &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; sorted_list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;pipes&quot;&gt;Pipes&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; | less &lt;span class=&quot;c&quot;&gt;# only outputs one screen at a time&lt;/span&gt;
+
+  &lt;span class=&quot;nb&quot;&gt;du&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;sort&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-nr&lt;/span&gt;
+
+  &lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;wc&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt;
+
+  &lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-tzvf&lt;/span&gt; tarfile/tgz | less
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;error-redirection&quot;&gt;Error redirection&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  myscript.sh 2&amp;gt; errors &lt;span class=&quot;c&quot;&gt;# redirects stderr rather than stdout&lt;/span&gt;
+
+  myscript.sh &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; allout.txt 2&amp;gt;&amp;amp;1 &lt;span class=&quot;c&quot;&gt;# redirects stdout and stderr to file&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Daniel VanderWal</name></author><category term="linux pipes redirection input output stdin stout stderr" /><summary type="html">IO Redirection</summary></entry><entry><title type="html">SSH</title><link href="http://localhost:3000/linux/3_ssh/" rel="alternate" type="text/html" title="SSH" /><published>2020-05-25T00:00:00-04:00</published><updated>2020-05-25T00:00:00-04:00</updated><id>http://localhost:3000/linux/3_ssh</id><content type="html" xml:base="http://localhost:3000/linux/3_ssh/">&lt;h2 id=&quot;ssh&quot;&gt;SSH&lt;/h2&gt;
+
+&lt;h4 id=&quot;common-flags&quot;&gt;Common Flags&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;-l Used to specify username&lt;/li&gt;
+  &lt;li&gt;-i &lt;em&gt;filename&lt;/em&gt; Used to specify private key used for authenticating&lt;/li&gt;
+  &lt;li&gt;-F &lt;em&gt;filename&lt;/em&gt; Used for specifying which config file is used, default is: ~/.ssh/config&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ssh example &lt;strong&gt;ssh username@hostname&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;keys&quot;&gt;Keys&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Private key: On user device&lt;/li&gt;
+  &lt;li&gt;Public key: On server&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can use key pairs to avoid typing a password in every time. The utilities to create this are:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ssh-keygen&lt;/strong&gt;: Generates the keys
+  &lt;strong&gt;ssh-copy-id&lt;/strong&gt;: Sends the public key to the server&lt;/p&gt;
+
+&lt;p&gt;#### X11 Forwarding
+  Allows you to tunnel GUI programs over ssh&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;ssh -x user@hostname&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;#### Previous SSH commands
+  rcp &amp;gt; scp
+  ftp &amp;gt; sftp&lt;/p&gt;</content><author><name>Daniel VanderWal</name></author><category term="linux ssh secure shell private public key" /><summary type="html">SSH</summary></entry><entry><title type="html">Logging In and Switching Users</title><link href="http://localhost:3000/linux/4_Logging_In_&_Switching_Users/" rel="alternate" type="text/html" title="Logging In and Switching Users" /><published>2020-05-25T00:00:00-04:00</published><updated>2020-05-25T00:00:00-04:00</updated><id>http://localhost:3000/linux/4_Logging_In_&amp;_Switching_Users</id><content type="html" xml:base="http://localhost:3000/linux/4_Logging_In_&amp;_Switching_Users/">&lt;h2 id=&quot;logging-in-and-switching-users&quot;&gt;Logging In and Switching Users&lt;/h2&gt;
+
+&lt;h4 id=&quot;su-command&quot;&gt;su command&lt;/h4&gt;
+&lt;p&gt;switch user command&lt;/p&gt;
+
+&lt;p&gt;Sign in as root&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;su -&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Sign in as user&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;su - clouduser&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Must include the dash to inherit $PATH of user&lt;/p&gt;
+
+&lt;h4 id=&quot;interactive-and-login-shells&quot;&gt;Interactive and login shells&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;.bash_profile: login shell, executed to configure things before the initial command prompt.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;.bashrc: interactive shell, is the place to put stuff that applies only to bash itself, such as alias and function definitions, shell options, and prompt settings.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Daniel VanderWal</name></author><category term="linux user login" /><summary type="html">Logging In and Switching Users</summary></entry><entry><title type="html">Grep and RegEx</title><link href="http://localhost:3000/linux/1_Grep_&_Regex/" rel="alternate" type="text/html" title="Grep and RegEx" /><published>2020-05-12T00:00:00-04:00</published><updated>2020-05-12T00:00:00-04:00</updated><id>http://localhost:3000/linux/1_Grep_&amp;_Regex</id><content type="html" xml:base="http://localhost:3000/linux/1_Grep_&amp;_Regex/">&lt;h2 id=&quot;using-grep-and-regular-expressions&quot;&gt;Using grep and Regular Expressions&lt;/h2&gt;
+
+&lt;p&gt;grep = designed for finding matching patterns
+usage: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;grep pattern file options&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;find . -name \*.txt | grep taxes -i&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;options&quot;&gt;Options&lt;/h3&gt;
+&lt;p&gt;-i = case insensitive
+-r = recursive through directories
+-v = finds all instances of no pattern match
+-w = serches for single word and not just any instance&lt;/p&gt;
+
+&lt;p&gt;Examples&lt;/p&gt;
+
+&lt;p&gt;To find the pattern ‘taxes’ recursively
+    &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ grep taxes * -ri&lt;/code&gt;
+    The star looks at all files in the current directory&lt;/p&gt;
+
+&lt;p&gt;To find all occurrences of the word `patricia’ in a file:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ grep 'patricia' myfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To find all occurrences of the pattern `.Pp’ at the beginning of a line:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ grep '^\.Pp' myfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The apostrophes ensure the entire expression is evaluated by grep instead
+of by the user’s shell.  The caret \^ matches the null string at the
+beginning of a line, and the \ escapes the ‘.’, which would otherwise
+match any character.&lt;/p&gt;
+
+&lt;p&gt;To find all lines in a file which do not contain the words &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;foo' or
+&lt;/code&gt;bar’:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ grep -v -e 'foo' -e 'bar' myfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Daniel VanderWal</name></author><category term="linux grep regex" /><summary type="html">Using grep and Regular Expressions</summary></entry><entry><title type="html">NGNIX - Securing Virtual Hosts - HTTPS</title><link href="http://localhost:3000/nginx/9_securing_virtual_hosts_https/" rel="alternate" type="text/html" title="NGNIX - Securing Virtual Hosts - HTTPS" /><published>2020-04-22T00:00:00-04:00</published><updated>2020-04-22T00:00:00-04:00</updated><id>http://localhost:3000/nginx/9_securing_virtual_hosts_https</id><content type="html" xml:base="http://localhost:3000/nginx/9_securing_virtual_hosts_https/">&lt;h2 id=&quot;nginx---securing-virtual-hosts---https&quot;&gt;NGINX - Securing Virtual Hosts - HTTPS&lt;/h2&gt;
+
+&lt;h4 id=&quot;ssltls-configuration-examples&quot;&gt;SSL/TLS Configuration Examples&lt;/h4&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server {
+    listen              443 ssl;
+    server_name         www.example.com;
+    ssl_certificate     www.example.com.crt;
+    ssl_certificate_key www.example.com.key;
+    ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers         HIGH:!aNULL:!MD5;
+    ...
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;There are many ways you can configure a server with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;listen&lt;/code&gt;: IPv4, IPv6, with or without IP address/port and UNIX sockets.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen 127.0.0.1;
+listen 8000;
+listen *:8000;
+listen localhost:8000;
+listen [::]:8000;
+listen unix:/var/run/nginx.sock;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;verify-the-self-signed-certificate-for-the-nginx-server&quot;&gt;Verify the Self-Signed Certificate for the NGINX Server&lt;/h4&gt;
+
+&lt;p&gt;Verify the X509 server certificate:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;openssl verify -CAfile /etc/nginx/ssl/testdomain.local/ca-cert.pem /etc/nginx/ssl/testdomain.local/server-cert.pem
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We should see the following: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;server-cert.pem: OK&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;configure-the-virtual-host-to-use-ssltls&quot;&gt;Configure the virtual host to use SSL/TLS&lt;/h4&gt;
+
+&lt;p&gt;Change the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;listen&lt;/code&gt; line to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;443 ssl&lt;/code&gt; and add the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssl_certificate&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssl_certificate_key&lt;/code&gt; directives:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server {
+        listen 443 ssl;
+        root /var/www/html/testdomain.local;
+        server_name testdomain.local www.testdomain.local;
+        ssl_certificate /etc/nginx/ssl/testdomain.local/server-cert.pem;
+        ssl_certificate_key /etc/nginx/ssl/testdomain.local/server-key.pem;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Daniel VanderWal</name></author><category term="nginx secure ssl tls certificate x509 key 443" /><summary type="html">NGINX - Securing Virtual Hosts - HTTPS</summary></entry><entry><title type="html">NGNIX - Rewrites</title><link href="http://localhost:3000/nginx/10_rewrites/" rel="alternate" type="text/html" title="NGNIX - Rewrites" /><published>2020-04-22T00:00:00-04:00</published><updated>2020-04-22T00:00:00-04:00</updated><id>http://localhost:3000/nginx/10_rewrites</id><content type="html" xml:base="http://localhost:3000/nginx/10_rewrites/">&lt;h2 id=&quot;nginx---rewrites&quot;&gt;NGINX - Rewrites&lt;/h2&gt;
+
+&lt;h4 id=&quot;the-rewrite-directive&quot;&gt;The rewrite directive:&lt;/h4&gt;
+&lt;p&gt;Changes part or all of the URL in a client request:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;To inform clients that the resource they’re requesting now resides at a different location&lt;/li&gt;
+  &lt;li&gt;To control the flow of processing within NGINX:
+    &lt;ul&gt;
+      &lt;li&gt;Example: To forward requests to an application server when content needs to be generated dynamically&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Sample Rewrites&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rewrite ^(/download/.*)/media/(\w+)\.?.*$ $1/mp3/$2.mp3 last;
+rewrite ^(/download/.*)/audio/(\w+)\.?.*$ $1/mp3/$2.ra  last;
+return  403;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;location /download/ {
+    rewrite ^(/download/.*)/media/(.*)\..*$ $1/mp3/$2.mp3 break;
+    rewrite ^(/download/.*)/audio/(.*)\..*$ $1/mp3/$2.ra  break;
+    return  403;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Example of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rewrite&lt;/code&gt; directive, used inside a location directive that uses an external URL:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;location /downloads {
+        rewrite ^(/downloads)/(.*)$ http://downloads.testdomain.local:9084/$2 permanent;
+        return 403;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rewrite&lt;/code&gt; grabs the file name after /downloads and sends the request to the URL: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://downloads.testdomain.local:9084/filename&lt;/code&gt;&lt;/p&gt;</content><author><name>Daniel VanderWal</name></author><category term="nginx rewrite forward external" /><summary type="html">NGINX - Rewrites</summary></entry><entry><title type="html">NGNIX - Configuring Virtual Hosts</title><link href="http://localhost:3000/nginx/2configuring_virtual_hosts/" rel="alternate" type="text/html" title="NGNIX - Configuring Virtual Hosts" /><published>2020-04-22T00:00:00-04:00</published><updated>2020-04-22T00:00:00-04:00</updated><id>http://localhost:3000/nginx/2configuring_virtual_hosts</id><content type="html" xml:base="http://localhost:3000/nginx/2configuring_virtual_hosts/">&lt;h2 id=&quot;nginx---configuring-virtual-hosts&quot;&gt;NGINX - Configuring Virtual Hosts&lt;/h2&gt;
+
+&lt;h4 id=&quot;virtual-host-configuration-file-locations&quot;&gt;Virtual host configuration file locations:&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;/etc/nginx/conf.d&lt;/li&gt;
+  &lt;li&gt;/etc/nginx/sites-available&lt;/li&gt;
+  &lt;li&gt;/etc/nginx/sites-enabled&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Virtual host configuration files are pulled into nginx.conf via include&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;virtual-host-configuration-files&quot;&gt;Virtual Host Configuration Files:&lt;/h4&gt;
+&lt;p&gt;Will have a &lt;em&gt;server&lt;/em&gt; block, at a minimum:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;listen &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;port&amp;gt;&lt;/code&gt;;&lt;/li&gt;
+  &lt;li&gt;root /some/location;&lt;/li&gt;
+  &lt;li&gt;server_name name(s);&lt;/li&gt;
+  &lt;li&gt;location &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;directory&amp;gt;&lt;/code&gt;;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Contains a place to “isolate” configuration for a single virtual host:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Enable/disable single virtual host&lt;/li&gt;
+  &lt;li&gt;Easier to troubleshoot&lt;/li&gt;
+  &lt;li&gt;Easier to recover from issue(s)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Troubleshooting Virtual Hosts:&lt;/p&gt;
+
+&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nginx -t&lt;/code&gt; to validate server configuration every time!&lt;/p&gt;
+
+&lt;p&gt;Errors tell the source/nature of the issue:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;What the error is&lt;/li&gt;
+  &lt;li&gt;Which file the error is located in&lt;/li&gt;
+  &lt;li&gt;Line the error is on in that file&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is why we isolate virtual host configuration files!&lt;/p&gt;</content><author><name>Daniel VanderWal</name></author><category term="nginx virtual hosts" /><summary type="html">NGINX - Configuring Virtual Hosts</summary></entry><entry><title type="html">NGINX - Configuring Custom Error Pages in NGINX</title><link href="http://localhost:3000/nginx/3_configuring_custom_error_pages/" rel="alternate" type="text/html" title="NGINX - Configuring Custom Error Pages in NGINX" /><published>2020-04-22T00:00:00-04:00</published><updated>2020-04-22T00:00:00-04:00</updated><id>http://localhost:3000/nginx/3_configuring_custom_error_pages</id><content type="html" xml:base="http://localhost:3000/nginx/3_configuring_custom_error_pages/">&lt;h2 id=&quot;configuring-custom-error-pages-in-nginx&quot;&gt;Configuring Custom Error Pages in NGINX&lt;/h2&gt;
+
+&lt;h4 id=&quot;why-custom-error-pages&quot;&gt;Why Custom Error Pages?&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Match “look and feel” of the site&lt;/li&gt;
+  &lt;li&gt;Provide customized information&lt;/li&gt;
+  &lt;li&gt;“Sanitize” server information&lt;/li&gt;
+  &lt;li&gt;“Catch all” for response codes that don’t require a unique error page&lt;/li&gt;
+  &lt;li&gt;Configure “custom” action to one or more response codes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;configure-a-single-error&quot;&gt;Configure a Single Error:&lt;/h4&gt;
+&lt;p&gt;Custom error pages are configured using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;error_page&lt;/code&gt; directive:&lt;/p&gt;
+
+&lt;p&gt;error_page 404 /testdomain_404.html;
+location = /testdomain_404.html {
+        root /var/www/html;
+        internal;
+}&lt;/p&gt;
+
+&lt;p&gt;This does the same thing, but returns a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;200 status (OK)&lt;/code&gt; instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;404&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
+error_page 404 =200 /testdomain_404.html;
+location = /testdomain_404.html {
+        root /var/www/html;
+        internal;
+}&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;map-multiple-errors-to-a-page&quot;&gt;Map Multiple Errors to a Page&lt;/h4&gt;
+&lt;p&gt;We can map more than one response code to a single page using the error_page directive, as shown here:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
+error_page 404 403 /testdomain_other_error.html;
+        location = /testdomain_other_error.html {
+                root /var/www/html;
+                internal;
+        }&lt;/code&gt;&lt;/p&gt;</content><author><name>Daniel VanderWal</name></author><category term="nginx error pages" /><summary type="html">Configuring Custom Error Pages in NGINX</summary></entry></feed>

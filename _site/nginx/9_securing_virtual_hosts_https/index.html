@@ -9,24 +9,21 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>danielvanderwal.github.io</title>
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<!-- begin _includes/seo.html --><title>NGNIX - Securing Virtual Hosts - HTTPS - danielvanderwal.github.io</title>
+<meta name="description" content="NGINX - Securing Virtual Hosts - HTTPS">
 
 
   <meta name="author" content="Daniel VanderWal">
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="danielvanderwal.github.io">
-<meta property="og:title" content="danielvanderwal.github.io">
-<meta property="og:url" content="http://localhost:3000/">
+<meta property="og:title" content="NGNIX - Securing Virtual Hosts - HTTPS">
+<meta property="og:url" content="http://localhost:3000/nginx/9_securing_virtual_hosts_https/">
 
 
-  <meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
-
-
-
+  <meta property="og:description" content="NGINX - Securing Virtual Hosts - HTTPS">
 
 
 
@@ -34,13 +31,16 @@
 
 
 
+  <meta property="article:published_time" content="2020-04-22T00:00:00-04:00">
 
 
-<link rel="canonical" href="http://localhost:3000/">
 
 
 
-  <link rel="next" href="http://localhost:3000/page2/">
+
+<link rel="canonical" href="http://localhost:3000/nginx/9_securing_virtual_hosts_https/">
+
+
 
 
 <script type="application/ld+json">
@@ -100,7 +100,7 @@
 
   </head>
 
-  <body class="layout--home">
+  <body class="layout--single">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -257,23 +257,169 @@
 
 
 
-  <div class="archive">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="NGNIX - Securing Virtual Hosts - HTTPS">
+    <meta itemprop="description" content="NGINX - Securing Virtual Hosts - HTTPS">
+    <meta itemprop="datePublished" content="2020-04-22T00:00:00-04:00">
     
-      <h1 id="page-title" class="page__title"></h1>
-    
-    
 
-<h3 class="archive__subtitle">Recent Posts</h3>
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">NGNIX - Securing Virtual Hosts - HTTPS
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
 
 
 
-<div class="entries-list">
+
+  less than 1 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="nginx---securing-virtual-hosts---https">NGINX - Securing Virtual Hosts - HTTPS</h2>
+
+<h4 id="ssltls-configuration-examples">SSL/TLS Configuration Examples</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+    listen              443 ssl;
+    server_name         www.example.com;
+    ssl_certificate     www.example.com.crt;
+    ssl_certificate_key www.example.com.key;
+    ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers         HIGH:!aNULL:!MD5;
+    ...
+}
+</code></pre></div></div>
+
+<p>There are many ways you can configure a server with <code class="language-plaintext highlighter-rouge">listen</code>: IPv4, IPv6, with or without IP address/port and UNIX sockets.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>listen 127.0.0.1;
+listen 8000;
+listen *:8000;
+listen localhost:8000;
+listen [::]:8000;
+listen unix:/var/run/nginx.sock;
+</code></pre></div></div>
+
+<h4 id="verify-the-self-signed-certificate-for-the-nginx-server">Verify the Self-Signed Certificate for the NGINX Server</h4>
+
+<p>Verify the X509 server certificate:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl verify -CAfile /etc/nginx/ssl/testdomain.local/ca-cert.pem /etc/nginx/ssl/testdomain.local/server-cert.pem
+</code></pre></div></div>
+
+<p>We should see the following: <code class="language-plaintext highlighter-rouge">server-cert.pem: OK</code></p>
+
+<h4 id="configure-the-virtual-host-to-use-ssltls">Configure the virtual host to use SSL/TLS</h4>
+
+<p>Change the <code class="language-plaintext highlighter-rouge">listen</code> line to <code class="language-plaintext highlighter-rouge">443 ssl</code> and add the <code class="language-plaintext highlighter-rouge">ssl_certificate</code> and <code class="language-plaintext highlighter-rouge">ssl_certificate_key</code> directives:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+        listen 443 ssl;
+        root /var/www/html/testdomain.local;
+        server_name testdomain.local www.testdomain.local;
+        ssl_certificate /etc/nginx/ssl/testdomain.local/server-cert.pem;
+        ssl_certificate_key /etc/nginx/ssl/testdomain.local/server-key.pem;
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
   
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
     
+      
+      
+      <a href="/tags/#nginx-secure-ssl-tls-certificate-x509-key-443" class="page__taxonomy-item" rel="tag">nginx secure ssl tls certificate x509 key 443</a>
+    
+    </span>
+  </p>
 
 
 
-<div class="list__item">
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#nginx" class="page__taxonomy-item" rel="tag">NGINX</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-04-22T00:00:00-04:00">April 22, 2020</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=NGNIX+-+Securing+Virtual+Hosts+-+HTTPS%20http%3A%2F%2Flocalhost%3A3000%2Fnginx%2F9_securing_virtual_hosts_https%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2Fnginx%2F9_securing_virtual_hosts_https%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A3000%2Fnginx%2F9_securing_virtual_hosts_https%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/nginx/8_creating_ssl_certificates_using_openssl/" class="pagination--pager" title="NGNIX - Creating SSL Certificates Using OpenSSL
+">Previous</a>
+    
+    
+      <a href="/linux/1_Grep_&_Regex/" class="pagination--pager" title="Grep and RegEx
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -298,12 +444,12 @@
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -328,12 +474,12 @@
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -358,12 +504,12 @@
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -388,87 +534,13 @@
   </article>
 </div>
 
+        
+      </div>
+    </div>
   
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/linux/3_ssh/" rel="permalink">SSH
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  less than 1 minute read
-
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">SSH
-
-</p>
-  </article>
-</div>
-
   
 </div>
 
-
-<nav class="pagination">
-  
-  <ul>
-    
-    
-    <li><a href="#" class="disabled"><span aria-hidden="true">Previous</span></a></li>
-    
-
-    
-    
-      <li><a href="#" class="disabled current">1</a></li>
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-        
-        
-        
-        <li><a href="/page2/">2</a></li>
-      
-    
-
-    
-    
-
-    
-      <li><a href="/page3/">3</a></li>
-    
-
-    
-    
-      <li><a href="/page2/">Next</a></li>
-    
-  </ul>
-</nav>
-
-
-
-  </div>
-</div>
     </div>
 
     

@@ -9,24 +9,21 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>danielvanderwal.github.io</title>
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<!-- begin _includes/seo.html --><title>NGNIX - Blocking Access by IP with NGINX - danielvanderwal.github.io</title>
+<meta name="description" content="Blocking Access by IP with NGINX">
 
 
   <meta name="author" content="Daniel VanderWal">
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="danielvanderwal.github.io">
-<meta property="og:title" content="danielvanderwal.github.io">
-<meta property="og:url" content="http://localhost:3000/">
+<meta property="og:title" content="NGNIX - Blocking Access by IP with NGINX">
+<meta property="og:url" content="http://localhost:3000/nginx/7_blocking_access_by_ip/">
 
 
-  <meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
-
-
-
+  <meta property="og:description" content="Blocking Access by IP with NGINX">
 
 
 
@@ -34,13 +31,16 @@
 
 
 
+  <meta property="article:published_time" content="2020-04-22T00:00:00-04:00">
 
 
-<link rel="canonical" href="http://localhost:3000/">
 
 
 
-  <link rel="next" href="http://localhost:3000/page2/">
+
+<link rel="canonical" href="http://localhost:3000/nginx/7_blocking_access_by_ip/">
+
+
 
 
 <script type="application/ld+json">
@@ -100,7 +100,7 @@
 
   </head>
 
-  <body class="layout--home">
+  <body class="layout--single">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -257,23 +257,142 @@
 
 
 
-  <div class="archive">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="NGNIX - Blocking Access by IP with NGINX">
+    <meta itemprop="description" content="Blocking Access by IP with NGINX">
+    <meta itemprop="datePublished" content="2020-04-22T00:00:00-04:00">
     
-      <h1 id="page-title" class="page__title"></h1>
-    
-    
 
-<h3 class="archive__subtitle">Recent Posts</h3>
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">NGNIX - Blocking Access by IP with NGINX
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
 
 
 
-<div class="entries-list">
+
+  less than 1 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="blocking-access-by-ip-with-nginx">Blocking Access by IP with NGINX</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">allow</code> directive</li>
+  <li><code class="language-plaintext highlighter-rouge">deny</code> directive</li>
+</ul>
+
+<h4 id="restrict-access-by-ip-address">Restrict Access By IP Address</h4>
+<p>The <code class="language-plaintext highlighter-rouge">ngx_http_access_module</code> allows limiting access to certain client addresses. Rules are checked in order until the first match is found. The <code class="language-plaintext highlighter-rouge">allow</code> and <code class="language-plaintext highlighter-rouge">deny</code> directives can be used within the <code class="language-plaintext highlighter-rouge">http</code>, <code class="language-plaintext highlighter-rouge">server</code>, <code class="language-plaintext highlighter-rouge">location</code>, and <code class="language-plaintext highlighter-rouge">limit_except</code> directives:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location / {
+    deny  192.168.1.1;
+    allow 192.168.1.0/24;
+    allow 10.1.1.0/16;
+    allow 2001:0db8::/32;
+    deny  all;
+}
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
   
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
     
+      
+      
+      <a href="/tags/#nginx-ip-filtering-blocking-allow-deny" class="page__taxonomy-item" rel="tag">nginx ip filtering blocking allow deny</a>
+    
+    </span>
+  </p>
 
 
 
-<div class="list__item">
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#nginx" class="page__taxonomy-item" rel="tag">NGINX</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-04-22T00:00:00-04:00">April 22, 2020</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=NGNIX+-+Blocking+Access+by+IP+with+NGINX%20http%3A%2F%2Flocalhost%3A3000%2Fnginx%2F7_blocking_access_by_ip%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2Fnginx%2F7_blocking_access_by_ip%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A3000%2Fnginx%2F7_blocking_access_by_ip%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/nginx/6_load_balancing/" class="pagination--pager" title="NGNIX - Load Balancing
+">Previous</a>
+    
+    
+      <a href="/nginx/8_creating_ssl_certificates_using_openssl/" class="pagination--pager" title="NGNIX - Creating SSL Certificates Using OpenSSL
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -298,12 +417,12 @@
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -328,12 +447,12 @@
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -358,12 +477,12 @@
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -388,87 +507,13 @@
   </article>
 </div>
 
+        
+      </div>
+    </div>
   
-    
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/linux/3_ssh/" rel="permalink">SSH
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  less than 1 minute read
-
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">SSH
-
-</p>
-  </article>
-</div>
-
   
 </div>
 
-
-<nav class="pagination">
-  
-  <ul>
-    
-    
-    <li><a href="#" class="disabled"><span aria-hidden="true">Previous</span></a></li>
-    
-
-    
-    
-      <li><a href="#" class="disabled current">1</a></li>
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-        
-        
-        
-        <li><a href="/page2/">2</a></li>
-      
-    
-
-    
-    
-
-    
-      <li><a href="/page3/">3</a></li>
-    
-
-    
-    
-      <li><a href="/page2/">Next</a></li>
-    
-  </ul>
-</nav>
-
-
-
-  </div>
-</div>
     </div>
 
     

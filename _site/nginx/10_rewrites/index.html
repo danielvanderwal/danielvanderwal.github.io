@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Minimal Mistakes Jekyll Theme 4.19.3 by Michael Rose
   Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>NGINX Basics - danielvanderwal.github.io</title>
-<meta name="description" content="Lesson Objectives:    Explore the /etc/nginx directory   Explore the nginx.conf file   Learn how to check the NGINX configuration using nginx -t   Learn how to reload the NGINX configuration   ">
+<!-- begin _includes/seo.html --><title>NGNIX - Rewrites - danielvanderwal.github.io</title>
+<meta name="description" content="NGINX - Rewrites">
 
 
   <meta name="author" content="Daniel VanderWal">
@@ -19,26 +19,26 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="danielvanderwal.github.io">
-<meta property="og:title" content="NGINX Basics">
-<meta property="og:url" content="http://localhost:3000/blog/1_basic_nginx_server_configuration/">
+<meta property="og:title" content="NGNIX - Rewrites">
+<meta property="og:url" content="http://localhost:3000/nginx/10_rewrites/">
 
 
-  <meta property="og:description" content="Lesson Objectives:    Explore the /etc/nginx directory   Explore the nginx.conf file   Learn how to check the NGINX configuration using nginx -t   Learn how to reload the NGINX configuration   ">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2020-04-08T00:00:00-04:00">
+  <meta property="og:description" content="NGINX - Rewrites">
 
 
 
 
 
 
-<link rel="canonical" href="http://localhost:3000/blog/1_basic_nginx_server_configuration/">
+
+  <meta property="article:published_time" content="2020-04-22T00:00:00-04:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:3000/nginx/10_rewrites/">
 
 
 
@@ -73,6 +73,7 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
 <!--[if IE]>
   <style>
@@ -179,7 +180,7 @@
     
     
       <div class="author__bio" itemprop="description">
-        <p>A place to document my findings and projects in Linux, Sysadmin, and Networking.</p>
+        <p>A wiki for my studies and projects in Linux, System Administration, and Networking.</p>
 
       </div>
     
@@ -190,16 +191,6 @@
     <ul class="author__urls social-icons">
       
 
-      
-        
-          
-            <li><a href="https://" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
-          
-        
-          
-            <li><a href="https://github.com/danielvanderwal" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
-          
-        
       
 
       
@@ -267,15 +258,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="NGINX Basics">
-    <meta itemprop="description" content="Lesson Objectives:  Explore the /etc/nginx directory  Explore the nginx.conf file  Learn how to check the NGINX configuration using nginx -t  Learn how to reload the NGINX configuration">
-    <meta itemprop="datePublished" content="2020-04-08T00:00:00-04:00">
+    <meta itemprop="headline" content="NGNIX - Rewrites">
+    <meta itemprop="description" content="NGINX - Rewrites">
+    <meta itemprop="datePublished" content="2020-04-22T00:00:00-04:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">NGINX Basics
+          <h1 id="page-title" class="page__title" itemprop="headline">NGNIX - Rewrites
 </h1>
           
             <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
@@ -292,77 +283,42 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="lesson-objectives">Lesson Objectives:</h2>
-<ul>
-  <li>Explore the /etc/nginx directory</li>
-  <li>Explore the nginx.conf file</li>
-  <li>Learn how to check the NGINX configuration using nginx -t</li>
-  <li>Learn how to reload the NGINX configuration</li>
-</ul>
+        <h2 id="nginx---rewrites">NGINX - Rewrites</h2>
 
-<h2 id="the-etcnginx-directory">The /etc/nginx directory:</h2>
+<h4 id="the-rewrite-directive">The rewrite directive:</h4>
+<p>Changes part or all of the URL in a client request:</p>
 
-<h4 id="location-for-all-configuration-files">Location for all configuration files:</h4>
 <ul>
-  <li>nginx.conf
+  <li>To inform clients that the resource they’re requesting now resides at a different location</li>
+  <li>To control the flow of processing within NGINX:
     <ul>
-      <li>Virtual host configuration files:
-        <ul>
-          <li>conf.d directory (RHEL)</li>
-          <li>sites-available directory (debian/ubuntu)</li>
-          <li>sites-enabled directory (debian/ubuntu)</li>
-        </ul>
-      </li>
-      <li>Module configuration files:
-        <ul>
-          <li>conf.d directory</li>
-          <li>modules-available directory</li>
-          <li>modules-enabled directory</li>
-        </ul>
-      </li>
+      <li>Example: To forward requests to an application server when content needs to be generated dynamically</li>
     </ul>
   </li>
 </ul>
 
-<h4 id="the-nginxconf-file">The nginx.conf file:</h4>
+<p><strong>Sample Rewrites</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rewrite ^(/download/.*)/media/(\w+)\.?.*$ $1/mp3/$2.mp3 last;
+rewrite ^(/download/.*)/audio/(\w+)\.?.*$ $1/mp3/$2.ra  last;
+return  403;
+</code></pre></div></div>
 
-<p><strong><em>Defines global configuration</em></strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location /download/ {
+    rewrite ^(/download/.*)/media/(.*)\..*$ $1/mp3/$2.mp3 break;
+    rewrite ^(/download/.*)/audio/(.*)\..*$ $1/mp3/$2.ra  break;
+    return  403;
+}
+</code></pre></div></div>
 
-<p><strong>Server process configuration:</strong></p>
-<ul>
-  <li>User server runs as</li>
-  <li>Location of PID file</li>
-</ul>
+<p>Example of the <code class="language-plaintext highlighter-rouge">rewrite</code> directive, used inside a location directive that uses an external URL:</p>
 
-<p><strong>Performance:</strong></p>
-<ul>
-  <li>worker_processes</li>
-  <li>worker_connections</li>
-</ul>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location /downloads {
+        rewrite ^(/downloads)/(.*)$ http://downloads.testdomain.local:9084/$2 permanent;
+        return 403;
+}
+</code></pre></div></div>
 
-<p><strong>Location(s) of module and virtual host configuration files (via include)</strong></p>
-
-<h4 id="how-to-check-the-nginx-configuration">How to check the NGINX configuration:</h4>
-
-<p><strong>Use <em>nginx -t</em> before every reload!</strong></p>
-
-<p><strong>Reloading the NGINX Configuration:</strong></p>
-
-<ul>
-  <li>Using systemctl:
-    <ul>
-      <li><strong>Reload</strong> - Doesn’t drop existing connections</li>
-      <li><strong>Restart</strong> - Drops existing connections</li>
-    </ul>
-  </li>
-  <li>Using NGINX - nginx -s:
-    <ul>
-      <li>Validates the configuration before restarting</li>
-    </ul>
-  </li>
-</ul>
-
-<p>The safe bet is to execute <strong>nginx -t</strong> before a reload or restart!</p>
+<p>This <code class="language-plaintext highlighter-rouge">rewrite</code> grabs the file name after /downloads and sends the request to the URL: <code class="language-plaintext highlighter-rouge">http://downloads.testdomain.local:9084/filename</code></p>
 
         
       </section>
@@ -383,7 +339,7 @@
     
       
       
-      <a href="/tags/#nginx" class="page__taxonomy-item" rel="tag">nginx</a>
+      <a href="/tags/#nginx-rewrite-forward-external" class="page__taxonomy-item" rel="tag">nginx rewrite forward external</a>
     
     </span>
   </p>
@@ -404,36 +360,38 @@
     
       
       
-      <a href="/categories/#blog" class="page__taxonomy-item" rel="tag">blog</a>
+      <a href="/categories/#nginx" class="page__taxonomy-item" rel="tag">NGINX</a>
     
     </span>
   </p>
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-04-08T00:00:00-04:00">April 8, 2020</time></p>
-        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-04-22T00:00:00-04:00">April 22, 2020</time></p>
+
+
       </footer>
 
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?text=NGINX+Basics%20http%3A%2F%2Flocalhost%3A3000%2Fblog%2F1_basic_nginx_server_configuration%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=NGNIX+-+Rewrites%20http%3A%2F%2Flocalhost%3A3000%2Fnginx%2F10_rewrites%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2Fblog%2F1_basic_nginx_server_configuration%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2Fnginx%2F10_rewrites%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A3000%2Fblog%2F1_basic_nginx_server_configuration%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A3000%2Fnginx%2F10_rewrites%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/blog/welcome-to-jekyll/" class="pagination--pager" title="Welcome to Jekyll!
+      <a href="/nginx/1_basic_nginx_server_configuration/" class="pagination--pager" title="NGINX Basics
 ">Previous</a>
     
     
-      <a href="#" class="pagination--pager disabled">Next</a>
+      <a href="/nginx/2configuring_virtual_hosts/" class="pagination--pager" title="NGNIX - Configuring Virtual Hosts
+">Next</a>
     
   </nav>
 
@@ -455,9 +413,39 @@
 <div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title" itemprop="headline">
+    <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/blog/welcome-to-jekyll/" rel="permalink">Welcome to Jekyll!
+        <a href="/linux/6_Creating_and_Manipulating_Files/" rel="permalink">Creating and Manipulating files
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Creating and Manipulating files
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/5_Compressing_and_Decompressing_Files/" rel="permalink">Compressing and Decompressing Files
 </a>
       
     </h2>
@@ -471,7 +459,69 @@
 
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different wa...</p>
+    <p class="archive__item-excerpt" itemprop="description">Compressing and Decompressing Files
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/2_IO_Redirection/" rel="permalink">IO Redirection
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">IO Redirection
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/linux/4_Logging_In_&_Switching_Users/" rel="permalink">Logging In and Switching Users
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Logging In and Switching Users
+
+</p>
   </article>
 </div>
 
@@ -507,12 +557,6 @@
     
 
     
-      
-        
-          <li><a href="https://github.com/danielvanderwal" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
-        
-      
-    
 
     <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
   </ul>
@@ -525,7 +569,6 @@
 
     
   <script src="/assets/js/main.min.js"></script>
-  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
 
 
 

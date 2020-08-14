@@ -9,24 +9,21 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>danielvanderwal.github.io</title>
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<!-- begin _includes/seo.html --><title>Compressing and Decompressing Files - danielvanderwal.github.io</title>
+<meta name="description" content="Compressing and Decompressing Files">
 
 
   <meta name="author" content="Daniel VanderWal">
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="danielvanderwal.github.io">
-<meta property="og:title" content="danielvanderwal.github.io">
-<meta property="og:url" content="http://localhost:3000/">
+<meta property="og:title" content="Compressing and Decompressing Files">
+<meta property="og:url" content="http://localhost:3000/linux/5_Compressing_and_Decompressing_Files/">
 
 
-  <meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
-
-
-
+  <meta property="og:description" content="Compressing and Decompressing Files">
 
 
 
@@ -34,13 +31,16 @@
 
 
 
+  <meta property="article:published_time" content="2020-05-27T00:00:00-04:00">
 
 
-<link rel="canonical" href="http://localhost:3000/">
 
 
 
-  <link rel="next" href="http://localhost:3000/page2/">
+
+<link rel="canonical" href="http://localhost:3000/linux/5_Compressing_and_Decompressing_Files/">
+
+
 
 
 <script type="application/ld+json">
@@ -100,7 +100,7 @@
 
   </head>
 
-  <body class="layout--home">
+  <body class="layout--single">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -257,23 +257,184 @@
 
 
 
-  <div class="archive">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Compressing and Decompressing Files">
+    <meta itemprop="description" content="Compressing and Decompressing Files">
+    <meta itemprop="datePublished" content="2020-05-27T00:00:00-04:00">
     
-      <h1 id="page-title" class="page__title"></h1>
-    
-    
 
-<h3 class="archive__subtitle">Recent Posts</h3>
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Compressing and Decompressing Files
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
 
 
 
-<div class="entries-list">
+
+  less than 1 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="compressing-and-decompressing-files">Compressing and Decompressing Files</h2>
+
+<h4 id="creating-archive">Creating archive</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>cvf example.tar /sourcedir
+</code></pre></div></div>
+
+<h4 id="extracting-archive">Extracting archive</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>xvf example.tar
+</code></pre></div></div>
+
+<h4 id="two-main-compression-commands">Two main compression commands:</h4>
+<ol>
+  <li>gzip</li>
+  <li>bzip2</li>
+</ol>
+
+<ul>
+  <li>gzip example:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">gzip </span>bigfile.stuff
+<span class="nb">gzip</span> <span class="nt">-d</span> bigfile.stuff.gz
+</code></pre></div></div>
+
+<ul>
+  <li>bzip2 example:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bzip2 bigfile.stuff
+bzip2 <span class="nt">-d</span> bigfile.stuff.bz2
+</code></pre></div></div>
+
+<h3 id="compress-an-archive">Compress an archive</h3>
+
+<p>Tar does not compress by default</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>czvf home.tar.gz /home
+
+or
+
+<span class="nb">tar </span>cvjf home.tar.bz2 /home
+</code></pre></div></div>
+
+<p>Extracting:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>xzvf home.tar.gz /home
+
+or
+
+<span class="nb">tar </span>xvjf home.tar.bz2 /home
+</code></pre></div></div>
+
+<h3 id="zip-files">Zip Files</h3>
+
+<p>Used for files that need to be managed on both Windows and Linux servers.  Zip is similar to tar, but automatically try’s to compress files.</p>
+
+<p>Examples:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zip <span class="nt">-r</span> archivename /home
+unzip archivename
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
   
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
     
+      
+      
+      <a href="/tags/#linux-compression-decompression-tar-bzip2-zip-archive" class="page__taxonomy-item" rel="tag">linux compression decompression tar bzip2 zip archive</a>
+    
+    </span>
+  </p>
 
 
 
-<div class="list__item">
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#linux" class="page__taxonomy-item" rel="tag">Linux</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-05-27T00:00:00-04:00">May 27, 2020</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Compressing+and+Decompressing+Files%20http%3A%2F%2Flocalhost%3A3000%2Flinux%2F5_Compressing_and_Decompressing_Files%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2Flinux%2F5_Compressing_and_Decompressing_Files%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A3000%2Flinux%2F5_Compressing_and_Decompressing_Files%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/linux/2_IO_Redirection/" class="pagination--pager" title="IO Redirection
+">Previous</a>
+    
+    
+      <a href="/linux/6_Creating_and_Manipulating_Files/" class="pagination--pager" title="Creating and Manipulating files
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -298,42 +459,12 @@
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/linux/5_Compressing_and_Decompressing_Files/" rel="permalink">Compressing and Decompressing Files
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  less than 1 minute read
-
-</p>
-    
-    <p class="archive__item-excerpt" itemprop="description">Compressing and Decompressing Files
-
-</p>
-  </article>
-</div>
-
-  
-    
-
-
-
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -358,12 +489,12 @@
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -388,12 +519,12 @@
   </article>
 </div>
 
-  
-    
+        
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
@@ -418,57 +549,13 @@
   </article>
 </div>
 
+        
+      </div>
+    </div>
+  
   
 </div>
 
-
-<nav class="pagination">
-  
-  <ul>
-    
-    
-    <li><a href="#" class="disabled"><span aria-hidden="true">Previous</span></a></li>
-    
-
-    
-    
-      <li><a href="#" class="disabled current">1</a></li>
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-        
-        
-        
-        <li><a href="/page2/">2</a></li>
-      
-    
-
-    
-    
-
-    
-      <li><a href="/page3/">3</a></li>
-    
-
-    
-    
-      <li><a href="/page2/">Next</a></li>
-    
-  </ul>
-</nav>
-
-
-
-  </div>
-</div>
     </div>
 
     
