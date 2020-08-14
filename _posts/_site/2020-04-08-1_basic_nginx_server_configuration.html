@@ -1,0 +1,63 @@
+<h2 id="the-etcnginx-directory">The /etc/nginx directory:</h2>
+
+<h4 id="location-for-all-configuration-files">Location for all configuration files:</h4>
+<ul>
+  <li>nginx.conf
+    <ul>
+      <li>Virtual host configuration files:
+        <ul>
+          <li>conf.d directory (RHEL)</li>
+          <li>sites-available directory (debian/ubuntu)</li>
+          <li>sites-enabled directory (debian/ubuntu)</li>
+        </ul>
+      </li>
+      <li>Module configuration files:
+        <ul>
+          <li>conf.d directory</li>
+          <li>modules-available directory</li>
+          <li>modules-enabled directory</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="the-nginxconf-file">The nginx.conf file:</h4>
+
+<p><strong><em>Defines global configuration</em></strong></p>
+
+<p><strong>Server process configuration:</strong></p>
+<ul>
+  <li>User server runs as</li>
+  <li>Location of PID file</li>
+</ul>
+
+<p><strong>Performance:</strong></p>
+<ul>
+  <li>worker_processes</li>
+  <li>worker_connections</li>
+</ul>
+
+<p><strong>Location(s) of module and virtual host configuration files (via include)</strong></p>
+
+<h4 id="how-to-check-the-nginx-configuration">How to check the NGINX configuration:</h4>
+
+<p><strong>Use <em>nginx -t</em> before every reload!</strong></p>
+
+<p><strong>Reloading the NGINX Configuration:</strong></p>
+
+<ul>
+  <li>Using systemctl:
+    <ul>
+      <li><strong>Reload</strong> - Doesn’t drop existing connections</li>
+      <li><strong>Restart</strong> - Drops existing connections</li>
+    </ul>
+  </li>
+  <li>Using NGINX - nginx -s:
+    <ul>
+      <li>Validates the configuration before restarting</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The safe bet is to execute <strong>nginx -t</strong> before a reload or restart!</p>

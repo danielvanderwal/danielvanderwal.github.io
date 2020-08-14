@@ -1,0 +1,36 @@
+<h2 id="nginx---rewrites">NGINX - Rewrites</h2>
+
+<h4 id="the-rewrite-directive">The rewrite directive:</h4>
+<p>Changes part or all of the URL in a client request:</p>
+
+<ul>
+  <li>To inform clients that the resource they’re requesting now resides at a different location</li>
+  <li>To control the flow of processing within NGINX:
+    <ul>
+      <li>Example: To forward requests to an application server when content needs to be generated dynamically</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Sample Rewrites</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rewrite ^(/download/.*)/media/(\w+)\.?.*$ $1/mp3/$2.mp3 last;
+rewrite ^(/download/.*)/audio/(\w+)\.?.*$ $1/mp3/$2.ra  last;
+return  403;
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location /download/ {
+    rewrite ^(/download/.*)/media/(.*)\..*$ $1/mp3/$2.mp3 break;
+    rewrite ^(/download/.*)/audio/(.*)\..*$ $1/mp3/$2.ra  break;
+    return  403;
+}
+</code></pre></div></div>
+
+<p>Example of the <code class="highlighter-rouge">rewrite</code> directive, used inside a location directive that uses an external URL:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location /downloads {
+        rewrite ^(/downloads)/(.*)$ http://downloads.testdomain.local:9084/$2 permanent;
+        return 403;
+}
+</code></pre></div></div>
+
+<p>This <code class="highlighter-rouge">rewrite</code> grabs the file name after /downloads and sends the request to the URL: <code class="highlighter-rouge">http://downloads.testdomain.local:9084/filename</code></p>

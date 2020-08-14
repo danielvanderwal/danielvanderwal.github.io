@@ -1,0 +1,38 @@
+<h2 id="configuring-custom-error-pages-in-nginx">Configuring Custom Error Pages in NGINX</h2>
+
+<h4 id="why-custom-error-pages">Why Custom Error Pages?</h4>
+<ul>
+  <li>Match “look and feel” of the site</li>
+  <li>Provide customized information</li>
+  <li>“Sanitize” server information</li>
+  <li>“Catch all” for response codes that don’t require a unique error page</li>
+  <li>Configure “custom” action to one or more response codes</li>
+</ul>
+
+<h4 id="configure-a-single-error">Configure a Single Error:</h4>
+<p>Custom error pages are configured using the <code class="highlighter-rouge">error_page</code> directive:</p>
+
+<p>error_page 404 /testdomain_404.html;
+location = /testdomain_404.html {
+        root /var/www/html;
+        internal;
+}</p>
+
+<p>This does the same thing, but returns a <code class="highlighter-rouge">200 status (OK)</code> instead of <code class="highlighter-rouge">404</code>:</p>
+
+<p><code class="highlighter-rouge">
+error_page 404 =200 /testdomain_404.html;
+location = /testdomain_404.html {
+        root /var/www/html;
+        internal;
+}</code></p>
+
+<h4 id="map-multiple-errors-to-a-page">Map Multiple Errors to a Page</h4>
+<p>We can map more than one response code to a single page using the error_page directive, as shown here:</p>
+
+<p><code class="highlighter-rouge">
+error_page 404 403 /testdomain_other_error.html;
+        location = /testdomain_other_error.html {
+                root /var/www/html;
+                internal;
+        }</code></p>

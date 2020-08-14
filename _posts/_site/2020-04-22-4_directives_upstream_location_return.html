@@ -1,0 +1,37 @@
+<h2 id="nginx---directives---upstream--location--return">NGINX - Directives - Upstream / Location / Return</h2>
+
+<h4 id="the-upstream-directive">The upstream directive</h4>
+<p>The upstream directive defines groups of servers that can be referenced by the <code class="highlighter-rouge">proxy_pass, fastcgi_pass, uwsgi_pass, scgi_pass, memcached_pass</code>, and <code class="highlighter-rouge">grpc_pass</code> directives:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   upstream testdomainapp  {
+   server app1.testdomain.local:8085;
+   server app2.testdomain.local:8086 backup;
+   server app3.testdomain.local:8087 backup;
+}
+</code></pre></div></div>
+
+<p>By default, requests are distributed between the servers using a weighted round-robin balancing method.</p>
+
+<h4 id="the-location-directive">The location directive</h4>
+<p>The location directive sets configuration depending on a request URI:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location / {
+        try_files $uri $uri/ =404;
+}
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location ~ /\.ht {
+        deny all;
+}
+</code></pre></div></div>
+
+<p>A location can either be defined by a prefix string, or by a regular expression.</p>
+
+<h4 id="the-return-directive">The return directive</h4>
+<p>The return directive stops processing and returns the specified code to a client:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location /downloads {
+        rewrite ^(/downloads)/(.*)$ http://downloads.testdomain.local:9084/$2 permanent;
+        return 403;
+}
+</code></pre></div></div>

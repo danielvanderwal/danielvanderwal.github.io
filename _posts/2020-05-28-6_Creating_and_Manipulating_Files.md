@@ -4,7 +4,13 @@ date: 2020-05-28
 categories:
   - Linux
 tags:
-  - linux touch cp mv rm find locate
+  - linux
+  - touch 
+  - cp
+  - mv 
+  - rm 
+  - find 
+  - locate
 ---
 
 ## Creating and Manipulating files

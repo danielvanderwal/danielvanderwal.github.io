@@ -1,0 +1,88 @@
+<h2 id="creating-and-manipulating-files">Creating and Manipulating files</h2>
+
+<h4 id="ways-to-modify-files">Ways to modify files:</h4>
+
+<ol>
+  <li>touch: creates a zero byte files</li>
+  <li>cp: copies one file to another</li>
+  <li>mv: moves a file from one location to another, even across file systems. Also how to change the name of a file.</li>
+  <li>rm: removes the inode-filename link. The data still exists on the disk drive, however.</li>
+</ol>
+
+<h3 id="manipulating-files">Manipulating Files</h3>
+
+<p>Examples:</p>
+<ul>
+  <li>Vim, Nano, ed, or Emacs</li>
+</ul>
+
+<h3 id="finding-files">Finding files</h3>
+
+<p>The <strong><em>find</em></strong> command can search a directory for matching criteria.</p>
+
+<p>Example:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find <span class="nb">.</span> <span class="nt">-name</span> <span class="k">*</span>.txt
+find /etc <span class="nt">-name</span> httpd.conf
+</code></pre></div></div>
+<p>Will find all files with names that end with .txt and output their full path to stdout.</p>
+
+<h5 id="common-find-flags">Common ‘Find’ Flags</h5>
+
+<ul>
+  <li><strong>type</strong>
+    <ul>
+      <li>f = regular files
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-name</span> httpd.conf
+</code></pre></div>        </div>
+      </li>
+      <li>d = directory
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find <span class="nb">.</span> <span class="nt">-type</span> d <span class="nt">-name</span> html
+</code></pre></div>        </div>
+      </li>
+      <li>I = symbolic link
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find <span class="nb">.</span> <span class="nt">-type</span> l <span class="nt">-name</span> redhat-release
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li><strong>user</strong>
+    <ul>
+      <li>File is owned by user (username or UID)</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="locate-command">‘Locate’ command</h5>
+<p>Relies on a database in /etc/cron.daily/mlocate. Update by running ‘updatedb’.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>locate httpd.conf
+</code></pre></div></div>
+<h3 id="reading-text-files">Reading Text files</h3>
+
+<ul>
+  <li><strong>cat</strong>
+    <ul>
+      <li>This reads the file and outputs all of it to stdout</li>
+    </ul>
+  </li>
+  <li><strong>less</strong> and <strong>more</strong>
+    <ul>
+      <li>Also known as “pagers” these commands will output the contents of a file to the screen, but allow you to navigate through the file as well.</li>
+    </ul>
+  </li>
+  <li><strong>head</strong> and <strong>tail</strong>
+    <ul>
+      <li>These commands let you look at the lines starting at the top or bottom of the file, respectively.
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">head</span> <span class="nt">-n</span> 100 messages
+<span class="nb">tail</span> <span class="nt">-n</span> 10 messages
+</code></pre></div>        </div>
+        <h3 id="text-manipulation">Text Manipulation</h3>
+      </li>
+    </ul>
+  </li>
+  <li><strong>sort</strong>
+    <ul>
+      <li>Sorts</li>
+    </ul>
+  </li>
+</ul>

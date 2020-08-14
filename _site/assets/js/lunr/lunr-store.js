@@ -1,7 +1,7 @@
 var store = [{
         "title": "NGINX Basics",
         "excerpt":"The /etc/nginx directory: Location for all configuration files: nginx.conf Virtual host configuration files: conf.d directory (RHEL) sites-available directory (debian/ubuntu) sites-enabled directory (debian/ubuntu) Module configuration files: conf.d directory modules-available directory modules-enabled directory The nginx.conf file: Defines global configuration Server process configuration: User server runs as Location of PID file Performance: worker_processes...","categories": ["NGINX"],
-        "tags": ["nginx nginx.conf config conf.d"],
+        "tags": [],
         "url": "http://localhost:3000/nginx/1_basic_nginx_server_configuration/",
         "teaser": null
       },{
@@ -13,7 +13,7 @@ var store = [{
       },{
         "title": "NGNIX - Configuring Virtual Hosts",
         "excerpt":"NGINX - Configuring Virtual Hosts Virtual host configuration file locations: /etc/nginx/conf.d /etc/nginx/sites-available /etc/nginx/sites-enabled Virtual host configuration files are pulled into nginx.conf via include Virtual Host Configuration Files: Will have a server block, at a minimum: listen &lt;port&gt;; root /some/location; server_name name(s); location &lt;directory&gt;; Contains a place to “isolate” configuration for...","categories": ["NGINX"],
-        "tags": ["nginx virtual hosts"],
+        "tags": [],
         "url": "http://localhost:3000/nginx/2configuring_virtual_hosts/",
         "teaser": null
       },{
@@ -85,7 +85,7 @@ var store = [{
       },{
         "title": "Creating and Manipulating files",
         "excerpt":"Creating and Manipulating files Ways to modify files: touch: creates a zero byte files cp: copies one file to another mv: moves a file from one location to another, even across file systems. Also how to change the name of a file. rm: removes the inode-filename link. The data still...","categories": ["Linux"],
-        "tags": ["linux touch cp mv rm find locate"],
+        "tags": ["linux","touch","cp","mv","rm","find","locate"],
         "url": "http://localhost:3000/linux/6_Creating_and_Manipulating_Files/",
         "teaser": null
       }]

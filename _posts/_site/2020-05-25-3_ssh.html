@@ -1,0 +1,33 @@
+<h2 id="ssh">SSH</h2>
+
+<h4 id="common-flags">Common Flags</h4>
+<ul>
+  <li>-l Used to specify username</li>
+  <li>-i <em>filename</em> Used to specify private key used for authenticating</li>
+  <li>-F <em>filename</em> Used for specifying which config file is used, default is: ~/.ssh/config</li>
+</ul>
+
+<blockquote>
+  <p>ssh example <strong>ssh username@hostname</strong></p>
+</blockquote>
+
+<h4 id="keys">Keys</h4>
+<ul>
+  <li>Private key: On user device</li>
+  <li>Public key: On server</li>
+</ul>
+
+<p>You can use key pairs to avoid typing a password in every time. The utilities to create this are:</p>
+
+<p><strong>ssh-keygen</strong>: Generates the keys
+  <strong>ssh-copy-id</strong>: Sends the public key to the server</p>
+
+<p>#### X11 Forwarding
+  Allows you to tunnel GUI programs over ssh</p>
+<blockquote>
+  <p>ssh -x user@hostname</p>
+</blockquote>
+
+<p>#### Previous SSH commands
+  rcp &gt; scp
+  ftp &gt; sftp</p>

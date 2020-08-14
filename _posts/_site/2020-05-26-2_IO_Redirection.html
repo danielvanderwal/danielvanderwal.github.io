@@ -1,0 +1,37 @@
+<h2 id="io-redirection">IO Redirection</h2>
+
+<ul>
+  <li>stdin - keyboard</li>
+  <li>stout - screen</li>
+  <li>stderr - error outputs</li>
+</ul>
+
+<h3 id="output-redirection">Output redirection</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">ls</span> <span class="nt">-al</span> <span class="o">&gt;</span> listing
+  <span class="nb">echo</span> <span class="s2">"This is a test"</span> <span class="o">&gt;&gt;</span> /var/log/messages
+</code></pre></div></div>
+
+<h3 id="input-redirection">Input redirection</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">sort</span> &lt; listing
+  <span class="nb">sort</span> &lt; listing <span class="o">&gt;</span> sorted_list
+</code></pre></div></div>
+
+<h3 id="pipes">Pipes</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">ls</span> <span class="nt">-l</span> | less <span class="c"># only outputs one screen at a time</span>
+
+  <span class="nb">du</span> | <span class="nb">sort</span> <span class="nt">-nr</span>
+
+  <span class="nb">ls</span> <span class="nt">-l</span> | <span class="nb">wc</span> <span class="nt">-l</span>
+
+  <span class="nb">tar</span> <span class="nt">-tzvf</span> tarfile/tgz | less
+</code></pre></div></div>
+
+<h3 id="error-redirection">Error redirection</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  myscript.sh 2&gt; errors <span class="c"># redirects stderr rather than stdout</span>
+
+  myscript.sh <span class="o">&gt;</span> allout.txt 2&gt;&amp;1 <span class="c"># redirects stdout and stderr to file</span>
+</code></pre></div></div>

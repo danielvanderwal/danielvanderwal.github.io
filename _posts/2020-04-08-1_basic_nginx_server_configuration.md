@@ -3,8 +3,6 @@ title: "NGINX Basics"
 date: 2020-04-08
 categories:
   - NGINX
-tags:
-  - nginx nginx.conf config conf.d
 ---
 
 ## The /etc/nginx directory:

@@ -1,0 +1,18 @@
+<h2 id="blocking-access-by-ip-with-nginx">Blocking Access by IP with NGINX</h2>
+
+<ul>
+  <li><code class="highlighter-rouge">allow</code> directive</li>
+  <li><code class="highlighter-rouge">deny</code> directive</li>
+</ul>
+
+<h4 id="restrict-access-by-ip-address">Restrict Access By IP Address</h4>
+<p>The <code class="highlighter-rouge">ngx_http_access_module</code> allows limiting access to certain client addresses. Rules are checked in order until the first match is found. The <code class="highlighter-rouge">allow</code> and <code class="highlighter-rouge">deny</code> directives can be used within the <code class="highlighter-rouge">http</code>, <code class="highlighter-rouge">server</code>, <code class="highlighter-rouge">location</code>, and <code class="highlighter-rouge">limit_except</code> directives:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location / {
+    deny  192.168.1.1;
+    allow 192.168.1.0/24;
+    allow 10.1.1.0/16;
+    allow 2001:0db8::/32;
+    deny  all;
+}
+</code></pre></div></div>

@@ -1,0 +1,47 @@
+<h2 id="creating-ssl-certificates-using-openssl">Creating SSL Certificates Using OpenSSL</h2>
+
+<h4 id="create-a-certificate-authority-private-key-and-certificate">Create a Certificate Authority Private Key and Certificate</h4>
+
+<p>First, we’ll need a place to store our certificates:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir -p /etc/nginx/certificates
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /etc/nginx/certificates
+</code></pre></div></div>
+
+<p>Generate a private key for the CA:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl genrsa 2048 &gt; ca-key.pem
+</code></pre></div></div>
+
+<p>Generate the X509 certificate for the CA:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl req -new -x509 -nodes -days 365000 \
+      -key ca-key.pem -out ca-cert.pem
+</code></pre></div></div>
+
+<h4 id="create-a-private-key-and-a-self-signed-certificate-for-the-nginx-server">Create a Private Key and a Self-Signed Certificate for the NGINX Server</h4>
+
+<p>Generate a private key and create a certificate request for the NGINX server. We will have to answer some questions:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl req -newkey rsa:2048 -days 365000 \
+      -nodes -keyout server-key.pem -out server-req.pem
+</code></pre></div></div>
+
+<p>Next, process the key to remove the passphrase:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl rsa -in server-key.pem -out server-key.pem
+</code></pre></div></div>
+<p>We should see the following: <code class="highlighter-rouge">writing RSA key</code>
+Generate a self-signed X509 certificate for the NGINX server from the certificate request:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl x509 -req -in server-req.pem -days 365000 \
+      -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 \
+      -out server-cert.pem
+</code></pre></div></div>
+
+<p>We need to allow the <code class="highlighter-rouge">nginx</code> user access to the certificates. Add ‘read’ permissions for ‘group’ and ‘other’:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod 644 *
+</code></pre></div></div>
+<h4 id="verify-the-self-signed-certificate-for-the-nginx-server">Verify the Self-Signed Certificate for the NGINX Server</h4>
+
+<p>Let’s verify that the X509 certificate was correctly generated:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl verify -CAfile ca-cert.pem server-cert.pem
+</code></pre></div></div>
+<p>We should see the following: <code class="highlighter-rouge">server-cert.pem: OK</code></p>

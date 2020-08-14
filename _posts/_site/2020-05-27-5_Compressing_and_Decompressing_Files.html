@@ -1,0 +1,60 @@
+<h2 id="compressing-and-decompressing-files">Compressing and Decompressing Files</h2>
+
+<h4 id="creating-archive">Creating archive</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>cvf example.tar /sourcedir
+</code></pre></div></div>
+
+<h4 id="extracting-archive">Extracting archive</h4>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>xvf example.tar
+</code></pre></div></div>
+
+<h4 id="two-main-compression-commands">Two main compression commands:</h4>
+<ol>
+  <li>gzip</li>
+  <li>bzip2</li>
+</ol>
+
+<ul>
+  <li>gzip example:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">gzip </span>bigfile.stuff
+<span class="nb">gzip</span> <span class="nt">-d</span> bigfile.stuff.gz
+</code></pre></div></div>
+
+<ul>
+  <li>bzip2 example:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bzip2 bigfile.stuff
+bzip2 <span class="nt">-d</span> bigfile.stuff.bz2
+</code></pre></div></div>
+
+<h3 id="compress-an-archive">Compress an archive</h3>
+
+<p>Tar does not compress by default</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>czvf home.tar.gz /home
+
+or
+
+<span class="nb">tar </span>cvjf home.tar.bz2 /home
+</code></pre></div></div>
+
+<p>Extracting:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar </span>xzvf home.tar.gz /home
+
+or
+
+<span class="nb">tar </span>xvjf home.tar.bz2 /home
+</code></pre></div></div>
+
+<h3 id="zip-files">Zip Files</h3>
+
+<p>Used for files that need to be managed on both Windows and Linux servers.  Zip is similar to tar, but automatically try’s to compress files.</p>
+
+<p>Examples:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zip <span class="nt">-r</span> archivename /home
+unzip archivename
+</code></pre></div></div>

@@ -1,0 +1,44 @@
+<h2 id="nginx---configuring-virtual-hosts">NGINX - Configuring Virtual Hosts</h2>
+
+<h4 id="virtual-host-configuration-file-locations">Virtual host configuration file locations:</h4>
+<ul>
+  <li>/etc/nginx/conf.d</li>
+  <li>/etc/nginx/sites-available</li>
+  <li>/etc/nginx/sites-enabled</li>
+</ul>
+
+<blockquote>
+  <p>Virtual host configuration files are pulled into nginx.conf via include</p>
+</blockquote>
+
+<h4 id="virtual-host-configuration-files">Virtual Host Configuration Files:</h4>
+<p>Will have a <em>server</em> block, at a minimum:</p>
+
+<ul>
+  <li>listen <code class="highlighter-rouge">&lt;port&gt;</code>;</li>
+  <li>root /some/location;</li>
+  <li>server_name name(s);</li>
+  <li>location <code class="highlighter-rouge">&lt;directory&gt;</code>;</li>
+</ul>
+
+<p>Contains a place to “isolate” configuration for a single virtual host:</p>
+
+<ul>
+  <li>Enable/disable single virtual host</li>
+  <li>Easier to troubleshoot</li>
+  <li>Easier to recover from issue(s)</li>
+</ul>
+
+<p>Troubleshooting Virtual Hosts:</p>
+
+<p>Use <code class="highlighter-rouge">nginx -t</code> to validate server configuration every time!</p>
+
+<p>Errors tell the source/nature of the issue:</p>
+
+<ul>
+  <li>What the error is</li>
+  <li>Which file the error is located in</li>
+  <li>Line the error is on in that file</li>
+</ul>
+
+<p>This is why we isolate virtual host configuration files!</p>

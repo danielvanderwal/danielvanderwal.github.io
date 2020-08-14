@@ -1,0 +1,46 @@
+<h2 id="nginx---load-balancing---an-introduction">NGINX - Load Balancing - An Introduction</h2>
+
+<h4 id="the-upstream-directive">The upstream directive</h4>
+<p>The upstream directive defines groups of servers that can be referenced by the <code class="highlighter-rouge">proxy_pass</code>, <code class="highlighter-rouge">fastcgi_pass</code>, <code class="highlighter-rouge">uwsgi_pass</code>, <code class="highlighter-rouge">scgi_pass</code>, <code class="highlighter-rouge">memcached_pass</code>, and <code class="highlighter-rouge">grpc_pass</code> directives:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>upstream testdomainapp  {
+   server app1.testdomain.local:8085;
+   server app2.testdomain.local:8086 backup;
+   server app3.testdomain.local:8087 backup;
+}
+</code></pre></div></div>
+
+<p>By default, requests are distributed between the servers using a weighted round-robin balancing method.</p>
+
+<h4 id="the-location-directive">The location directive</h4>
+
+<p>The <code class="highlighter-rouge">location</code> directive is the other part of the equation that enables the <code class="highlighter-rouge">upstream</code> directive:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location /app {
+        proxy_pass http://testdomainapp/;
+}
+</code></pre></div></div>
+
+<p>In this example, we are using the <code class="highlighter-rouge">/app</code> location to front-end the <code class="highlighter-rouge">testdomainapp</code> server group, defined in the <code class="highlighter-rouge">upstream</code> directive.</p>
+
+<h4 id="the-server-directive">The server directive</h4>
+
+<p>The <code class="highlighter-rouge">server</code> directive defines an individual server that is part of the <code class="highlighter-rouge">upstream</code> group:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>upstream testdomainapp  {
+   server app1.testdomain.local:8085 weight=3;
+   server app2.testdomain.local:8086;
+   server app3.testdomain.local:8087 backup;
+}
+</code></pre></div></div>
+
+<p>There are may options available to define how each server is handled in the group. Server parameters available in the non-commercial NGINX offering include:</p>
+
+<ul>
+  <li>weight=<number> - Sets the weight of the server, default=1</number></li>
+  <li>max_conns=<number> - Limits active connections, default=0</number></li>
+  <li>max_fails=<number> - Maximum unsuccessful connections, default=1</number></li>
+  <li>fail_timeout=<time> - Sets fail timeout, default=10 seconds</time></li>
+  <li>backup - Marks the server as a backup server</li>
+  <li>down - Marks the server as a unavailable</li>
+</ul>

@@ -1,0 +1,39 @@
+<h2 id="using-grep-and-regular-expressions">Using grep and Regular Expressions</h2>
+
+<p>grep = designed for finding matching patterns
+usage: <code class="highlighter-rouge">grep pattern file options</code></p>
+
+<p>e.g. <code class="highlighter-rouge">find . -name \*.txt | grep taxes -i</code></p>
+
+<h3 id="options">Options</h3>
+<p>-i = case insensitive
+-r = recursive through directories
+-v = finds all instances of no pattern match
+-w = serches for single word and not just any instance</p>
+
+<p>Examples</p>
+
+<p>To find the pattern ‘taxes’ recursively
+    <code class="highlighter-rouge">$ grep taxes * -ri</code>
+    The star looks at all files in the current directory</p>
+
+<p>To find all occurrences of the word `patricia’ in a file:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ grep 'patricia' myfile
+</code></pre></div></div>
+
+<p>To find all occurrences of the pattern `.Pp’ at the beginning of a line:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ grep '^\.Pp' myfile
+</code></pre></div></div>
+
+<p>The apostrophes ensure the entire expression is evaluated by grep instead
+of by the user’s shell.  The caret \^ matches the null string at the
+beginning of a line, and the \ escapes the ‘.’, which would otherwise
+match any character.</p>
+
+<p>To find all lines in a file which do not contain the words <code class="highlighter-rouge">foo' or
+</code>bar’:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ grep -v -e 'foo' -e 'bar' myfile
+</code></pre></div></div>
